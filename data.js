@@ -102,6 +102,30 @@ const DAYS = [
     {label:'📍 위치 · Position',words:[['up','업','위'],['down','다운','아래'],['left','레프트','왼쪽'],['right','라이트','오른쪽'],['front','프런트','앞'],['back','백','뒤'],['inside','인사이드','안쪽'],['outside','아웃사이드','바깥쪽'],['between','비트윈','사이에'],['next to','넥스트 투','옆에']]},
     {label:'🧭 방향 · Direction',words:[['north','노스','북쪽'],['south','사우스','남쪽'],['east','이스트','동쪽'],['west','웨스트','서쪽'],['above','어보브','~위에'],['below','빌로우','~아래에'],['near','니어','가까운'],['far','파','먼'],['here','히어','여기'],['there','데어','저기/거기']]}
   ]},
+  {day:25,title:'도구 & 기계',subtitle:'Tools & Machines',sections:[
+    {label:'🔨 도구 · Tools',words:[['tool','툴','도구'],['hammer','해머','망치'],['nail','네일','못'],['screw','스크루','나사'],['knife','나이프','칼'],['spoon','스푼','숟가락'],['fork','포크','포크'],['plate','플레이트','접시'],['cup','컵','컵'],['bottle','보틀','병']]},
+    {label:'⚙️ 기계 · Machines',words:[['machine','머신','기계'],['phone','폰','전화기'],['camera','카메라','카메라'],['clock','클락','시계'],['radio','라디오','라디오'],['fan','팬','선풍기'],['key','키','열쇠'],['battery','배터리','배터리'],['button','버튼','버튼'],['screen','스크린','화면']]}
+  ]},
+  {day:26,title:'집안일 & 일상',subtitle:'Chores & Daily Life',sections:[
+    {label:'🧹 집안일 · Chores',words:[['clean','클린','청소하다'],['wash','워시','씻다'],['cook','쿡','요리하다'],['help','헬프','돕다'],['carry','캐리','나르다'],['move','무브','옮기다'],['fix','픽스','고치다'],['make','메이크','만들다'],['use','유즈','사용하다'],['try','트라이','시도하다']]},
+    {label:'🌅 일상 · Daily Life',words:[['wake','웨이크','일어나다'],['go','고','가다'],['come','컴','오다'],['stay','스테이','머무르다'],['wait','웨이트','기다리다'],['meet','밋','만나다'],['visit','비짓','방문하다'],['call','콜','전화하다'],['send','센드','보내다'],['bring','브링','가져오다']]}
+  ]},
+  {day:27,title:'동물 심화',subtitle:'More Animals',sections:[
+    {label:'🦁 야생동물 · Wild Animals',words:[['wolf','울프','늑대'],['fox','폭스','여우'],['deer','디어','사슴'],['squirrel','스쿼럴','다람쥐'],['mouse','마우스','쥐'],['bat','뱃','박쥐'],['owl','아울','올빼미'],['eagle','이글','독수리'],['zebra','지브라','얼룩말'],['hippo','히포','하마']]},
+    {label:'🐛 곤충 & 바다생물',words:[['bee','비','벌'],['ant','앤트','개미'],['butterfly','버터플라이','나비'],['spider','스파이더','거미'],['worm','웜','벌레'],['shark','샤크','상어'],['whale','웨일','고래'],['dolphin','돌핀','돌고래'],['crab','크랩','게'],['octopus','옥토퍼스','문어']]}
+  ]},
+  {day:28,title:'색깔 & 모양 심화',subtitle:'Colors & Shapes',sections:[
+    {label:'🎨 색깔 심화 · More Colors',words:[['gray','그레이','회색'],['gold','골드','금색'],['silver','실버','은색'],['dark','다크','어두운'],['bright','브라이트','밝은'],['color','컬러','색깔'],['rainbow','레인보우','무지개'],['shiny','샤이니','반짝이는'],['clear','클리어','투명한'],['pale','페일','옅은']]},
+    {label:'⭐ 모양 · Shapes',words:[['shape','셰이프','모양'],['circle','서클','원'],['triangle','트라이앵글','삼각형'],['rectangle','렉탱글','직사각형'],['star','스타','별'],['heart','하트','하트'],['line','라인','선'],['dot','닷','점'],['corner','코너','모서리'],['side','사이드','옆면']]}
+  ]},
+  {day:29,title:'음식 심화',subtitle:'More Food',sections:[
+    {label:'🍳 요리 · Cooking',words:[['salt','솔트','소금'],['sugar','슈거','설탕'],['pepper','페퍼','후추'],['oil','오일','기름'],['sauce','소스','소스'],['flour','플라워','밀가루'],['fry','프라이','튀기다/볶다'],['boil','보일','끓이다'],['bake','베이크','굽다'],['cut','컷','자르다']]},
+    {label:'🍽️ 식사 · Meals',words:[['breakfast','브렉퍼스트','아침 식사'],['lunch','런치','점심 식사'],['dinner','디너','저녁 식사'],['snack','스낵','간식'],['menu','메뉴','메뉴'],['taste','테이스트','맛'],['sweet','스윗','달콤한'],['sour','사워','신맛의'],['salty','솔티','짠'],['spicy','스파이시','매운']]}
+  ]},
+  {day:30,title:'감사 & 인사',subtitle:'Greetings & Thanks',sections:[
+    {label:'👋 인사 · Greetings',words:[['hello','헬로우','안녕(만날 때)'],['goodbye','굿바이','안녕(헤어질 때)'],['welcome','웰컴','환영합니다'],['please','플리즈','제발/부디'],['sorry','쏘리','미안해'],['excuse','익스큐즈','실례하다'],['name','네임','이름'],['nice','나이스','좋은/멋진'],['fine','파인','괜찮은'],['great','그레이트','훌륭한']]},
+    {label:'🙏 감사 & 표현 · Thanks',words:[['thank','땡크','감사하다'],['yes','예스','네'],['no','노','아니요'],['okay','오케이','알겠어'],['sure','슈어','물론'],['maybe','메이비','아마'],['always','올웨이즈','항상'],['never','네버','절대 ~않다'],['again','어게인','다시'],['together','투게더','함께']]}
+  ]},
 ];
 
 const DICT = {};
