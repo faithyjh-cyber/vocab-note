@@ -126,6 +126,26 @@ const DAYS = [
     {label:'👋 인사 · Greetings',words:[['hello','헬로우','안녕(만날 때)'],['goodbye','굿바이','안녕(헤어질 때)'],['welcome','웰컴','환영합니다'],['please','플리즈','제발/부디'],['sorry','쏘리','미안해'],['excuse','익스큐즈','실례하다'],['name','네임','이름'],['nice','나이스','좋은/멋진'],['fine','파인','괜찮은'],['great','그레이트','훌륭한']]},
     {label:'🙏 감사 & 표현 · Thanks',words:[['thank','땡크','감사하다'],['yes','예스','네'],['no','노','아니요'],['okay','오케이','알겠어'],['sure','슈어','물론'],['maybe','메이비','아마'],['always','올웨이즈','항상'],['never','네버','절대 ~않다'],['again','어게인','다시'],['together','투게더','함께']]}
   ]},
+  {day:31,title:'컴퓨터 & 인터넷',subtitle:'Computer & Internet',sections:[
+    {label:'💻 기기 · Devices',words:[['computer','컴퓨터','컴퓨터'],['laptop','랩탑','노트북'],['tablet','태블릿','태블릿'],['mouse','마우스','마우스'],['keyboard','키보드','키보드'],['monitor','모니터','모니터'],['printer','프린터','프린터'],['charger','차저','충전기'],['headphone','헤드폰','헤드폰'],['speaker','스피커','스피커']]},
+    {label:'🌐 인터넷 · Internet',words:[['internet','인터넷','인터넷'],['website','웹사이트','웹사이트'],['email','이메일','이메일'],['password','패스워드','비밀번호'],['download','다운로드','내려받다'],['upload','업로드','올리다'],['search','서치','검색하다'],['click','클릭','클릭하다'],['save','세이브','저장하다'],['share','셰어','공유하다']]}
+  ]},
+  {day:32,title:'여행 & 나라',subtitle:'Travel & Countries',sections:[
+    {label:'🌏 나라 · Countries',words:[['country','컨트리','나라'],['Korea','코리아','한국'],['America','아메리카','미국'],['China','차이나','중국'],['Japan','재팬','일본'],['England','잉글랜드','영국'],['France','프랑스','프랑스'],['Canada','캐나다','캐나다'],['world','월드','세계'],['map','맵','지도']]},
+    {label:'🧳 여행 · Travel',words:[['trip','트립','여행'],['passport','패스포트','여권'],['luggage','러기지','짐/수하물'],['tourist','투어리스트','관광객'],['guide','가이드','안내자'],['flag','플래그','국기'],['language','랭귀지','언어'],['culture','컬처','문화'],['abroad','어브로드','해외에'],['arrive','어라이브','도착하다']]}
+  ]},
+  {day:33,title:'수학 & 숫자 표현',subtitle:'Math & Numbers',sections:[
+    {label:'➕ 연산 · Operations',words:[['add','애드','더하다'],['plus','플러스','더하기'],['minus','마이너스','빼기'],['times','타임즈','곱하기'],['divide','디바이드','나누다'],['equal','이퀄','같다'],['number','넘버','숫자'],['count','카운트','세다'],['total','토탈','합계'],['half','하프','절반']]},
+    {label:'📊 표현 · Expressions',words:[['first','퍼스트','첫 번째'],['second','세컨드','두 번째'],['third','써드','세 번째'],['last','라스트','마지막'],['many','메니','많은(수)'],['much','머치','많은(양)'],['few','퓨','적은'],['more','모어','더 많은'],['less','레스','더 적은'],['same','세임','같은']]}
+  ]},
+  {day:34,title:'교회 & 신앙',subtitle:'Church & Faith',sections:[
+    {label:'⛪ 교회 · Church',words:[['God','갓','하나님'],['Jesus','지저스','예수님'],['Bible','바이블','성경'],['pray','프레이','기도하다'],['prayer','프레이어','기도'],['worship','워십','예배'],['hymn','힘','찬송가'],['pastor','패스터','목사님'],['cross','크로스','십자가'],['heaven','헤븐','천국']]},
+    {label:'💛 마음 · Heart',words:[['faith','페이스','믿음'],['grace','그레이스','은혜'],['bless','블레스','축복하다'],['thankful','땡크풀','감사하는'],['forgive','포기브','용서하다'],['peace','피스','평화'],['joy','조이','기쁨'],['angel','에인절','천사'],['light','라이트','빛'],['glory','글로리','영광']]}
+  ]},
+  {day:35,title:'우주 & 과학',subtitle:'Space & Science',sections:[
+    {label:'🚀 우주 · Space',words:[['space','스페이스','우주'],['planet','플래닛','행성'],['galaxy','갤럭시','은하'],['universe','유니버스','우주 전체'],['astronaut','애스트로넛','우주비행사'],['satellite','새틀라이트','인공위성'],['telescope','텔레스코프','망원경'],['gravity','그래비티','중력'],['orbit','오빗','궤도'],['comet','코멧','혜성']]},
+    {label:'🔬 과학 · Science',words:[['energy','에너지','에너지'],['power','파워','힘/전력'],['heat','히트','열'],['ice','아이스','얼음'],['steam','스팀','수증기'],['magnet','매그넛','자석'],['metal','메탈','금속'],['plastic','플라스틱','플라스틱'],['glass','글래스','유리'],['experiment','익스페리먼트','실험']]}
+  ]},
 ];
 
 const DICT = {};
