@@ -159,14 +159,14 @@ async function init() {
 
   // 첫 실행 시 어제 오답 기본값
   if (!d1.records.length) {
-    d1.records.push({ date:'8/24(금)', total:20, wrong:['find'] });
-    d1.wrongs['find'] = { count:1, dates:['8/24(금)'] };
+    d1.records.push({ date:'8/31(월)', total:20, wrong:['find'] });
+    d1.wrongs['find'] = { count:1, dates:['8/31(월)'] };
     await apiSave(1, d1);
   }
   if (!d2.records.length) {
-    d2.records.push({ date:'8/24(금)', total:10, wrong:['sofa','mirror'] });
-    d2.wrongs['sofa'] = { count:1, dates:['8/24(금)'] };
-    d2.wrongs['mirror'] = { count:1, dates:['8/24(금)'] };
+    d2.records.push({ date:'8/31(월)', total:10, wrong:['sofa','mirror'] });
+    d2.wrongs['sofa'] = { count:1, dates:['8/31(월)'] };
+    d2.wrongs['mirror'] = { count:1, dates:['8/31(월)'] };
     await apiSave(2, d2);
   }
 
