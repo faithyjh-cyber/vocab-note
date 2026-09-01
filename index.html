@@ -4,18 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="영단어 오답노트">
-<title>영단어 오답노트</title>
+<meta name="apple-mobile-web-app-title" content="영단어">
+<title>영단어</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{background:#f7f3ed;color:#2c2418;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;min-height:100vh;padding:16px 14px 60px;max-width:480px;margin:0 auto}
-h1{font-size:20px;font-weight:900;text-align:center;padding:16px 0 4px}
-.sub{font-size:12px;color:#a0927c;text-align:center;margin-bottom:16px}
-.tabs{display:flex;gap:8px;background:#ede8e0;border-radius:14px;padding:5px;margin-bottom:16px}
-.tab{flex:1;padding:10px 0;border-radius:10px;border:none;background:transparent;color:#7a6a58;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s}
-.tab.on1{background:#c47a2a;color:#fff}
-.tab.on2{background:#2a7a9e;color:#fff}
+body{background:#f7f3ed;color:#2c2418;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;min-height:100vh;max-width:480px;margin:0 auto}
+.main-tabs{display:flex;background:#fff;border-bottom:2px solid #ede8e0;position:sticky;top:0;z-index:10}
+.main-tab{flex:1;padding:14px 0;border:none;background:transparent;color:#a0927c;font-size:14px;font-weight:700;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s}
+.main-tab.on{color:#2c2418;border-bottom-color:#c47a2a}
+.page{display:none;padding:16px 14px 70px}
+.page.active{display:block}
+.word-header{text-align:center;padding:12px 0 16px}
+.word-header h2{font-size:18px;font-weight:900}
+.word-header p{font-size:12px;color:#a0927c;margin-top:3px}
+.kid-tabs{display:flex;gap:8px;background:#ede8e0;border-radius:14px;padding:5px;margin-bottom:14px}
+.kid-tab{flex:1;padding:9px 0;border-radius:10px;border:none;background:transparent;color:#7a6a58;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s}
+.kid-tab.on1{background:#c47a2a;color:#fff}
+.kid-tab.on2{background:#2a7a9e;color:#fff}
+.word-card{background:#fff;border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,0.07);margin-bottom:12px}
+.word-card-header{padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.word-card-title{font-size:12px;color:#a0927c;font-weight:700}
+.word-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;color:#fff}
+.word-section-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:#a0927c;padding:10px 16px 6px;background:#faf8f5}
+.word-row{display:flex;align-items:center;padding:8px 16px;gap:10px;border-top:1px solid rgba(0,0,0,0.04)}
+.word-num{font-size:11px;color:#c0b09a;width:18px;text-align:right;flex-shrink:0}
+.word-en{font-size:14px;font-weight:700;width:90px;flex-shrink:0}
+.word-pron{font-size:12px;color:#a0927c;width:62px;flex-shrink:0}
+.word-kr{font-size:13px;font-weight:700;flex:1}
+.weekend-msg{text-align:center;padding:40px 20px;color:#a0927c;font-size:14px;line-height:2}
+.no-day{text-align:center;padding:40px 20px;color:#a0927c;font-size:14px;line-height:2}
 .card{background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:14px;border:1px solid rgba(0,0,0,0.07)}
 .summary{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
 .scard{background:#fff;border-radius:14px;padding:12px 8px;text-align:center;border:1px solid rgba(0,0,0,0.07)}
@@ -30,11 +47,9 @@ h1{font-size:20px;font-weight:900;text-align:center;padding:16px 0 4px}
 .bar-cnt{font-size:11px;color:#d94f4f;width:26px;text-align:right;flex-shrink:0}
 .inp-row{display:flex;gap:8px;margin-bottom:8px}
 input{background:#f7f2ea;border:1px solid rgba(0,0,0,0.08);border-radius:8px;color:#2c2418;font-family:inherit;font-size:13px;padding:8px 10px;outline:none;width:100%}
-.inp-date{flex:1}
 .inp-num{width:50px!important;text-align:center}
 .btn{width:100%;padding:11px;border-radius:10px;border:none;color:#fff;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;margin-top:2px}
-.btn1{background:#c47a2a}
-.btn2{background:#2a7a9e}
+.btn1{background:#c47a2a}.btn2{background:#2a7a9e}
 .msg{font-size:12px;text-align:center;margin-top:8px;min-height:16px}
 .wrong-item{background:#f7f2ea;border-radius:10px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
 .wi-word{font-size:15px;font-weight:800}
@@ -43,280 +58,40 @@ input{background:#f7f2ea;border:1px solid rgba(0,0,0,0.08);border-radius:8px;col
 .badge{background:#d94f4f;color:#fff;border-radius:20px;font-size:11px;font-weight:700;padding:3px 10px;flex-shrink:0}
 .empty{color:#a0927c;font-size:13px;text-align:center;padding:16px 0}
 .loading{text-align:center;color:#a0927c;font-size:14px;padding:40px 0}
-.section{display:none}
-.section.active{display:block}
+.note-section{display:none}.note-section.active{display:block}
 .wrong-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .wrong-cnt{font-size:13px;color:#d94f4f}
+.note-header{text-align:center;padding:12px 0 16px}
+.note-header h2{font-size:18px;font-weight:900}
+.note-header p{font-size:12px;color:#a0927c;margin-top:3px}
 </style>
 </head>
 <body>
-
-<h1>📝 영단어 오답노트</h1>
-<p class="sub">어디서 열어도 같은 데이터가 보여요</p>
-
-<div class="tabs">
-  <button class="tab on1" onclick="switchTab(1)">하준 (20개)</button>
-  <button class="tab" onclick="switchTab(2)">하민 (10개)</button>
+<div class="main-tabs">
+  <button class="main-tab on" onclick="switchMain('word')">📖 오늘의 단어</button>
+  <button class="main-tab" onclick="switchMain('note')">📝 오답노트</button>
 </div>
-
-<div id="sec1" class="section active"></div>
-<div id="sec2" class="section"></div>
-
-<script>
-const API = 'https://script.google.com/a/macros/cgnmail.net/s/AKfycbxbwQiyQr9uSpM_Xte97hfwE4pvQQaKWFRJ9uINBaT6sq0YilvnEj0yh34EVn_DVAVDaQ/exec';
-
-const KIDS = {
-  1: { name:'하준', total:20, color:'#c47a2a', cls:'btn1' },
-  2: { name:'하민', total:10, color:'#2a7a9e', cls:'btn2' }
-};
-
-const DICT = {
-  "one":"1","two":"2","three":"3","four":"4","five":"5","six":"6","seven":"7","eight":"8","nine":"9","ten":"10",
-  "red":"빨간색","blue":"파란색","yellow":"노란색","green":"초록색","black":"검은색","white":"흰색","pink":"분홍색","orange":"주황색","purple":"보라색","brown":"갈색",
-  "dog":"개","cat":"고양이","bird":"새","fish":"물고기","rabbit":"토끼","bear":"곰","tiger":"호랑이","lion":"사자","elephant":"코끼리","monkey":"원숭이",
-  "horse":"말","cow":"소","pig":"돼지","sheep":"양","duck":"오리","frog":"개구리","snake":"뱀","turtle":"거북이","penguin":"펭귄","giraffe":"기린",
-  "head":"머리","face":"얼굴","eye":"눈","ear":"귀","nose":"코","mouth":"입","tooth":"이/치아","hair":"머리카락","neck":"목","cheek":"볼/뺨",
-  "body":"몸","shoulder":"어깨","arm":"팔","hand":"손","finger":"손가락","chest":"가슴","stomach":"배","leg":"다리","knee":"무릎","foot":"발",
-  "family":"가족","father":"아버지","mother":"어머니","dad":"아빠","mom":"엄마","brother":"남자형제","sister":"여자형제","son":"아들","daughter":"딸","baby":"아기",
-  "grandfather":"할아버지","grandmother":"할머니","grandpa":"할아버지","grandma":"할머니","uncle":"삼촌","aunt":"고모/이모","cousin":"사촌","husband":"남편","wife":"아내","parents":"부모님",
-  "rice":"밥/쌀","bread":"빵","egg":"달걀","meat":"고기","soup":"국/수프","noodle":"국수","pizza":"피자","hamburger":"햄버거","sandwich":"샌드위치","cake":"케이크",
-  "water":"물","milk":"우유","juice":"주스","tea":"차","cookie":"쿠키","candy":"사탕","chocolate":"초콜릿","ice cream":"아이스크림","butter":"버터","cheese":"치즈",
-  "apple":"사과","banana":"바나나","grape":"포도","strawberry":"딸기","watermelon":"수박","peach":"복숭아","pear":"배","lemon":"레몬","mango":"망고","cherry":"체리",
-  "carrot":"당근","potato":"감자","tomato":"토마토","onion":"양파","cucumber":"오이","corn":"옥수수","mushroom":"버섯","spinach":"시금치","pumpkin":"호박","garlic":"마늘",
-  "school":"학교","class":"수업/반","teacher":"선생님","student":"학생","friend":"친구","desk":"책상","chair":"의자","board":"칠판","classroom":"교실","homework":"숙제",
-  "book":"책","pencil":"연필","pen":"펜","eraser":"지우개","ruler":"자","notebook":"공책","scissors":"가위","glue":"풀","bag":"가방","crayon":"크레용",
-  "weather":"날씨","sunny":"맑은","cloudy":"흐린","rainy":"비오는","snowy":"눈오는","windy":"바람부는","hot":"더운","cold":"추운/감기","warm":"따뜻한","cool":"시원한",
-  "spring":"봄","summer":"여름","fall":"가을","winter":"겨울","rain":"비","snow":"눈","wind":"바람","cloud":"구름","sun":"태양/해","rainbow":"무지개",
-  "house":"집","home":"가정/집","door":"문","window":"창문","wall":"벽","floor":"바닥","roof":"지붕","stairs":"계단","garden":"정원","gate":"대문",
-  "room":"방","bedroom":"침실","bathroom":"화장실","kitchen":"부엌","living room":"거실","bed":"침대","sofa":"소파","table":"탁자","lamp":"조명/램프","mirror":"거울",
-  "clothes":"옷","shirt":"셔츠","t-shirt":"티셔츠","jacket":"재킷","coat":"코트","sweater":"스웨터","dress":"원피스","uniform":"교복/유니폼","hat":"모자","cap":"야구모자",
-  "pants":"바지","jeans":"청바지","skirt":"치마","shorts":"반바지","socks":"양말","shoes":"신발","sneakers":"운동화","boots":"부츠","gloves":"장갑","scarf":"목도리",
-  "car":"자동차","bus":"버스","taxi":"택시","truck":"트럭","bike":"자전거","motorcycle":"오토바이","train":"기차","subway":"지하철","road":"도로","station":"역",
-  "airplane":"비행기","helicopter":"헬리콥터","rocket":"로켓","ship":"배/선박","boat":"보트","airport":"공항","ticket":"표/티켓","stop":"정류장","drive":"운전하다","ride":"타다",
-  "doctor":"의사","nurse":"간호사","police":"경찰관","firefighter":"소방관","soldier":"군인","pilot":"조종사","scientist":"과학자","engineer":"엔지니어","lawyer":"변호사",
-  "cook":"요리사","baker":"제빵사","farmer":"농부","driver":"운전기사","singer":"가수","actor":"배우","artist":"예술가","writer":"작가","athlete":"운동선수","vet":"수의사",
-  "hospital":"병원","pharmacy":"약국","bank":"은행","library":"도서관","museum":"박물관","church":"교회","park":"공원","zoo":"동물원","market":"시장",
-  "store":"가게","supermarket":"슈퍼마켓","restaurant":"식당","cafe":"카페","hotel":"호텔","theater":"극장","gym":"체육관","pool":"수영장","playground":"놀이터","city":"도시",
-  "run":"달리다","walk":"걷다","jump":"뛰다","swim":"수영하다","fly":"날다","climb":"오르다","dance":"춤추다","sit":"앉다","stand":"서다","sleep":"자다",
-  "eat":"먹다","drink":"마시다","read":"읽다","write":"쓰다","draw":"그리다","sing":"노래하다","play":"놀다","listen":"듣다","speak":"말하다","think":"생각하다",
-  "tree":"나무","flower":"꽃","grass":"풀/잔디","leaf":"나뭇잎","rock":"바위/돌","mountain":"산","forest":"숲","desert":"사막","island":"섬","cave":"동굴",
-  "sea":"바다","ocean":"대양","river":"강","lake":"호수","waterfall":"폭포","sky":"하늘","star":"별","moon":"달","earth":"지구","nature":"자연",
-  "happy":"행복한","excited":"신난","glad":"기쁜","proud":"자랑스러운","calm":"차분한","surprised":"놀란","brave":"용감한","kind":"친절한","love":"사랑","hope":"희망",
-  "sad":"슬픈","angry":"화난","scared":"무서운","worried":"걱정되는","tired":"피곤한","bored":"지루한","lonely":"외로운","nervous":"긴장된","shy":"부끄러운","confused":"헷갈리는",
-  "big":"큰","small":"작은","tall":"키가 큰","short":"짧은","long":"긴","wide":"넓은","narrow":"좁은","round":"둥근","square":"네모난","flat":"평평한",
-  "new":"새로운","old":"오래된","clean":"깨끗한","dirty":"더러운","heavy":"무거운","light":"가벼운","hard":"딱딱한","soft":"부드러운","fast":"빠른","slow":"느린",
-  "monday":"월요일","tuesday":"화요일","wednesday":"수요일","thursday":"목요일","friday":"금요일","saturday":"토요일","sunday":"일요일",
-  "time":"시간","morning":"아침","afternoon":"오후","evening":"저녁","night":"밤","today":"오늘","tomorrow":"내일","yesterday":"어제","week":"일주일","month":"월","year":"년","hour":"시간","minute":"분",
-  "january":"1월","february":"2월","march":"3월","april":"4월","may":"5월","june":"6월","july":"7월","august":"8월","september":"9월","october":"10월","november":"11월","december":"12월",
-  "eleven":"11","twelve":"12","twenty":"20","thirty":"30","forty":"40","fifty":"50","hundred":"100","thousand":"1000",
-  "soccer":"축구","baseball":"야구","basketball":"농구","volleyball":"배구","tennis":"테니스","swimming":"수영","running":"달리기","skiing":"스키","cycling":"자전거타기","taekwondo":"태권도",
-  "painting":"그림그리기","cooking":"요리하기","reading":"독서","singing":"노래하기","dancing":"춤추기","fishing":"낚시","camping":"캠핑","gaming":"게임하기","travel":"여행","music":"음악",
-  "sick":"아픈","pain":"통증","fever":"열","cough":"기침","headache":"두통","stomachache":"복통","allergy":"알레르기","medicine":"약",
-  "health":"건강","exercise":"운동","rest":"휴식","wash":"씻다","brush":"닦다","shower":"샤워","diet":"식단","vitamin":"비타민","strong":"튼튼한","safe":"안전한",
-  "subject":"과목","math":"수학","science":"과학","english":"영어","history":"역사","art":"미술","p.e.":"체육","geography":"지리","computer":"컴퓨터",
-  "lesson":"수업","test":"시험","exam":"시험","grade":"성적/학년","question":"질문","answer":"정답","learn":"배우다","study":"공부하다","practice":"연습하다","understand":"이해하다",
-  "open":"열다","close":"닫다","push":"밀다","pull":"당기다","give":"주다","take":"가져가다","start":"시작하다","finish":"끝내다","win":"이기다","lose":"지다",
-  "buy":"사다","sell":"팔다","hate":"미워하다","remember":"기억하다","forget":"잊다","find":"찾다","laugh":"웃다","cry":"울다",
-  "up":"위","down":"아래","left":"왼쪽","right":"오른쪽","front":"앞","back":"뒤","inside":"안쪽","outside":"바깥쪽","between":"사이에","next to":"옆에",
-  "north":"북쪽","south":"남쪽","east":"동쪽","west":"서쪽","above":"위에","below":"아래에","near":"가까운","far":"먼","here":"여기","there":"저기",
-};
-
-let currentTab = 1;
-let dataMap = { 1: null, 2: null };
-
-// ── API (JSONP로 CORS 우회) ─────────────────────
-function apiLoad(kid) {
-  return new Promise((resolve) => {
-    const cbName = 'cb_' + Date.now();
-    const script = document.createElement('script');
-    window[cbName] = (data) => {
-      delete window[cbName];
-      if (script.parentNode) script.parentNode.removeChild(script);
-      resolve((data && data.records) ? data : { records: [], wrongs: {} });
-    };
-    script.onerror = () => resolve({ records: [], wrongs: {} });
-    script.src = API + '?kid=kid' + kid + '&callback=' + cbName;
-    document.body.appendChild(script);
-    setTimeout(() => resolve({ records: [], wrongs: {} }), 10000);
-  });
-}
-
-async function apiSave(kid, data) {
-  try {
-    await fetch(API, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify({ kid: 'kid' + kid, data }),
-    });
-  } catch {}
-}
-
-// ── 초기 로드 ───────────────────────────────────
-async function init() {
-  renderLoading(1); renderLoading(2);
-  const [d1, d2] = await Promise.all([apiLoad(1), apiLoad(2)]);
-
-  // 첫 실행 시 어제 오답 기본값
-  if (!d1.records.length) {
-    d1.records.push({ date:'8/31(월)', total:20, wrong:['find'] });
-    d1.wrongs['find'] = { count:1, dates:['8/31(월)'] };
-    await apiSave(1, d1);
-  }
-  if (!d2.records.length) {
-    d2.records.push({ date:'8/31(월)', total:10, wrong:['sofa','mirror'] });
-    d2.wrongs['sofa'] = { count:1, dates:['8/31(월)'] };
-    d2.wrongs['mirror'] = { count:1, dates:['8/31(월)'] };
-    await apiSave(2, d2);
-  }
-
-  dataMap[1] = d1; dataMap[2] = d2;
-  render(1); render(2);
-}
-
-// ── 탭 전환 ────────────────────────────────────
-function switchTab(n) {
-  currentTab = n;
-  document.querySelectorAll('.tab').forEach((t, i) => {
-    t.className = 'tab' + (i + 1 === n ? ` on${n}` : '');
-  });
-  document.querySelectorAll('.section').forEach((s, i) => {
-    s.classList.toggle('active', i + 1 === n);
-  });
-}
-
-// ── 오답 추가 ──────────────────────────────────
-async function addRecord(kid) {
-  const date = document.getElementById(`d${kid}-date`).value.trim();
-  const total = parseInt(document.getElementById(`d${kid}-total`).value) || KIDS[kid].total;
-  const wordsRaw = document.getElementById(`d${kid}-words`).value.trim();
-  const msgEl = document.getElementById(`d${kid}-msg`);
-
-  if (!date) { msgEl.style.color='#d94f4f'; msgEl.textContent='날짜를 입력해 주세요'; return; }
-
-  msgEl.style.color='#a0927c'; msgEl.textContent='저장 중...';
-  document.getElementById(`d${kid}-btn`).disabled = true;
-
-  const wrong = wordsRaw ? wordsRaw.split(',').map(w => w.trim().toLowerCase()).filter(Boolean) : [];
-  const data = JSON.parse(JSON.stringify(dataMap[kid]));
-
-  const idx = data.records.findIndex(r => r.date === date);
-  if (idx >= 0) {
-    data.records[idx].wrong.forEach(w => {
-      if (data.wrongs[w]) {
-        data.wrongs[w].count--;
-        data.wrongs[w].dates = data.wrongs[w].dates.filter(d => d !== date);
-        if (data.wrongs[w].count <= 0) delete data.wrongs[w];
-      }
-    });
-    data.records[idx] = { date, total, wrong };
-  } else {
-    data.records.push({ date, total, wrong });
-  }
-
-  wrong.forEach(w => {
-    if (!data.wrongs[w]) data.wrongs[w] = { count:0, dates:[] };
-    data.wrongs[w].count++;
-    if (!data.wrongs[w].dates.includes(date)) data.wrongs[w].dates.push(date);
-  });
-
-  await apiSave(kid, data);
-  dataMap[kid] = data;
-  render(kid);
-
-  document.getElementById(`d${kid}-date`).value = '';
-  document.getElementById(`d${kid}-words`).value = '';
-  msgEl.style.color='#4caf6e'; msgEl.textContent='저장됐어요 ✓';
-  setTimeout(() => { msgEl.textContent=''; }, 2500);
-  document.getElementById(`d${kid}-btn`).disabled = false;
-}
-
-// ── 렌더링 ─────────────────────────────────────
-function renderLoading(kid) {
-  document.getElementById(`sec${kid}`).innerHTML = `<div class="loading">불러오는 중...</div>`;
-}
-
-function render(kid) {
-  const data = dataMap[kid];
-  if (!data) return;
-  const { color } = KIDS[kid];
-  const records = data.records || [];
-  const wrongs = data.wrongs || {};
-
-  const totalW = records.reduce((s,r) => s + r.wrong.length, 0);
-  const days = records.length;
-  const avg = days > 0
-    ? Math.round(records.reduce((s,r) => s + ((r.total - r.wrong.length) / r.total * 100), 0) / days)
-    : null;
-
-  const wrongEntries = Object.entries(wrongs).sort((a,b) => b[1].count - a[1].count);
-
-  // 그래프
-  const chartHTML = records.length === 0
-    ? `<p class="empty">아직 기록이 없어요</p>`
-    : records.slice(-8).map(r => {
-        const pct = Math.round(((r.total - r.wrong.length) / r.total) * 100);
-        const bc = pct >= 90 ? '#4caf6e' : pct >= 70 ? color : '#d94f4f';
-        return `<div class="bar-row">
-          <span class="bar-date">${r.date}</span>
-          <div class="bar-track">
-            <div class="bar-fill" style="width:${pct}%;background:${bc}">
-              <span class="bar-pct">${pct}%</span>
-            </div>
-          </div>
-          <span class="bar-cnt">${r.wrong.length > 0 ? '-'+r.wrong.length : '✓'}</span>
-        </div>`;
-      }).join('');
-
-  // 오답 목록
-  const wrongHTML = wrongEntries.length === 0
-    ? `<p class="empty">오답이 없어요 🎉</p>`
-    : wrongEntries.map(([w, info]) => {
-        const meaning = DICT[w.toLowerCase()] || '';
-        return `<div class="wrong-item">
-          <div>
-            <div class="wi-word" style="color:${color}">${w}</div>
-            <div class="wi-mean">${meaning}</div>
-            <div class="wi-dates">${info.dates.join(', ')}</div>
-          </div>
-          <div class="badge">${info.count}회</div>
-        </div>`;
-      }).join('');
-
-  document.getElementById(`sec${kid}`).innerHTML = `
-    <div class="summary">
-      <div class="scard"><div class="sval" style="color:#d94f4f">${totalW}</div><div class="slabel">누적 오답</div></div>
-      <div class="scard"><div class="sval" style="color:#4caf6e">${avg !== null ? avg+'%' : '-'}</div><div class="slabel">평균 정답률</div></div>
-      <div class="scard"><div class="sval" style="color:${color}">${days}</div><div class="slabel">진행 일수</div></div>
-    </div>
-
-    <div class="card">
-      <div class="clabel">일별 정답률</div>
-      ${chartHTML}
-    </div>
-
-    <div class="card">
-      <div class="clabel">오답 입력</div>
-      <div class="inp-row">
-        <input id="d${kid}-date" class="inp-date" placeholder="8/25(월)">
-        <input id="d${kid}-total" class="inp-num" type="number" value="${KIDS[kid].total}">
-      </div>
-      <input id="d${kid}-words" placeholder="틀린 단어 (쉼표 구분, 없으면 비워두세요)" style="margin-bottom:10px">
-      <button id="d${kid}-btn" class="btn ${KIDS[kid].cls}" onclick="addRecord(${kid})">기록 추가</button>
-      <div id="d${kid}-msg" class="msg"></div>
-    </div>
-
-    <div class="card">
-      <div class="wrong-header">
-        <span class="clabel" style="margin:0">오답 모음</span>
-        ${wrongEntries.length > 0 ? `<span class="wrong-cnt">${wrongEntries.length}개</span>` : ''}
-      </div>
-      ${wrongHTML}
-    </div>
-  `;
-}
-
-init();
-</script>
+<div id="page-word" class="page active">
+  <div class="word-header">
+    <h2 id="word-day-title">오늘의 단어</h2>
+    <p id="word-day-sub"></p>
+  </div>
+  <div class="kid-tabs">
+    <button class="kid-tab on1" onclick="switchKidWord(1)">하준 (20개)</button>
+    <button class="kid-tab" onclick="switchKidWord(2)">하민 (10개)</button>
+  </div>
+  <div id="word-content"></div>
+</div>
+<div id="page-note" class="page">
+  <div class="note-header"><h2>오답노트</h2><p>어디서 열어도 같은 데이터가 보여요</p></div>
+  <div class="kid-tabs">
+    <button class="kid-tab on1" onclick="switchKidNote(1)">하준 (20개)</button>
+    <button class="kid-tab" onclick="switchKidNote(2)">하민 (10개)</button>
+  </div>
+  <div id="note-sec1" class="note-section active"></div>
+  <div id="note-sec2" class="note-section"></div>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
