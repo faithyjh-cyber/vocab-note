@@ -1,3 +1,31 @@
+// ── 발음 기능 (미국식) ─────────────────────────────────
+function speak(word, e) {
+  if (e) e.stopPropagation();
+  try {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(word);
+    u.lang = 'en-US';
+    u.rate = 0.85;
+    const voices = window.speechSynthesis.getVoices();
+    const usVoice = voices.find(v => v.lang === 'en-US' && /Samantha|Alex|Google US|Microsoft Zira|Microsoft David/i.test(v.name))
+                 || voices.find(v => v.lang === 'en-US');
+    if (usVoice) u.voice = usVoice;
+    window.speechSynthesis.speak(u);
+  } catch (err) {}
+}
+
+function openDict(word, e) {
+  if (e) e.stopPropagation();
+  const url = 'https://en.dict.naver.com/#/search?query=' + encodeURIComponent(word);
+  window.open(url, '_blank');
+}
+
+// 음성 목록 미리 로드
+if (window.speechSynthesis) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+}
+
 // ── 날짜 계산 ──────────────────────────────────────────
 function getTodayDay() {
   const today = new Date(); today.setHours(0,0,0,0);
@@ -62,7 +90,7 @@ function renderWordContent() {
         <span class="word-badge" style="background:${color}">10 words</span>
       </div>
       <div class="word-section-label">${label}</div>
-      ${kidWords.map((w,i)=>`<div class="word-row"><span class="word-num">${i+1}</span><span class="word-en" style="color:${color}">${w[0]}</span><span class="word-pron">${w[1]}</span><span class="word-kr">${w[2]}</span></div>`).join('')}
+      ${kidWords.map((w,i)=>`<div class="word-row"><span class="word-num">${i+1}</span><span class="word-en" style="color:${color}" onclick="openDict('${w[0]}',event)">${w[0]}</span><span class="word-pron">${w[1]}</span><span class="word-kr">${w[2]}</span><button class="spk" onclick="speak('${w[0]}',event)">🔊</button></div>`).join('')}
     </div>`;
     return;
   }
@@ -79,7 +107,7 @@ function renderWordContent() {
         ${si===0?`<span class="word-badge" style="background:${color}">20 words</span>`:''}
       </div>
       <div class="word-section-label">${sec.label}</div>
-      ${sec.words.map((w,i)=>`<div class="word-row"><span class="word-num">${si*10+i+1}</span><span class="word-en" style="color:${color}">${w[0]}</span><span class="word-pron">${w[1]}</span><span class="word-kr">${w[2]}</span></div>`).join('')}
+      ${sec.words.map((w,i)=>`<div class="word-row"><span class="word-num">${si*10+i+1}</span><span class="word-en" style="color:${color}" onclick="openDict('${w[0]}',event)">${w[0]}</span><span class="word-pron">${w[1]}</span><span class="word-kr">${w[2]}</span><button class="spk" onclick="speak('${w[0]}',event)">🔊</button></div>`).join('')}
     </div>`).join('');
 }
 

@@ -31,6 +31,11 @@ body{background:#f7f3ed;color:#2c2418;font-family:'Apple SD Gothic Neo','Noto Sa
 .word-en{font-size:14px;font-weight:700;width:90px;flex-shrink:0}
 .word-pron{font-size:12px;color:#a0927c;width:62px;flex-shrink:0}
 .word-kr{font-size:13px;font-weight:700;flex:1}
+.word-en{cursor:pointer;text-decoration:underline;text-decoration-color:rgba(0,0,0,0.15);text-underline-offset:3px}
+.word-en:active{opacity:0.6}
+.spk{background:transparent;border:none;font-size:16px;cursor:pointer;padding:4px 2px 4px 6px;flex-shrink:0;opacity:0.55;transition:opacity .15s}
+.spk:active{opacity:1;transform:scale(1.15)}
+.speak-hint{font-size:11px;color:#a0927c;text-align:center;padding:0 0 10px;line-height:1.6}
 .weekend-msg{text-align:center;padding:40px 20px;color:#a0927c;font-size:14px;line-height:2}
 .no-day{text-align:center;padding:40px 20px;color:#a0927c;font-size:14px;line-height:2}
 .card{background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:14px;border:1px solid rgba(0,0,0,0.07)}
@@ -80,6 +85,7 @@ input{background:#f7f2ea;border:1px solid rgba(0,0,0,0.08);border-radius:8px;col
     <button class="kid-tab on1" onclick="switchKidWord(1)">하준 (20개)</button>
     <button class="kid-tab" onclick="switchKidWord(2)">하민 (10개)</button>
   </div>
+  <p class="speak-hint">🔊 를 누르면 발음이 들려요 · 단어를 누르면 사전이 열려요</p>
   <div id="word-content"></div>
 </div>
 <div id="page-note" class="page">
