@@ -1,26 +1,45 @@
-// ── 발음 기능 (미국식) ─────────────────────────────────
+// ── 발음 기능 (Google TTS - 미국식) ────────────────────
+let audioEl = null;
+
 function speak(word, e) {
   if (e) e.stopPropagation();
+  const text = encodeURIComponent(word);
+  const url = 'https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=' + text;
+
+  try {
+    if (!audioEl) {
+      audioEl = new Audio();
+      audioEl.preload = 'auto';
+    }
+    audioEl.pause();
+    audioEl.src = url;
+    audioEl.playbackRate = 0.9;
+    const p = audioEl.play();
+    if (p && p.catch) p.catch(() => fallbackSpeak(word));
+  } catch (err) {
+    fallbackSpeak(word);
+  }
+}
+
+// Google TTS 실패 시 브라우저 내장 음성으로
+function fallbackSpeak(word) {
   try {
     window.speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(word);
     u.lang = 'en-US';
     u.rate = 0.85;
     const voices = window.speechSynthesis.getVoices();
-    const usVoice = voices.find(v => v.lang === 'en-US' && /Samantha|Alex|Google US|Microsoft Zira|Microsoft David/i.test(v.name))
-                 || voices.find(v => v.lang === 'en-US');
-    if (usVoice) u.voice = usVoice;
+    const v = voices.find(x => x.lang === 'en-US') || voices.find(x => x.lang.startsWith('en'));
+    if (v) u.voice = v;
     window.speechSynthesis.speak(u);
   } catch (err) {}
 }
 
 function openDict(word, e) {
   if (e) e.stopPropagation();
-  const url = 'https://en.dict.naver.com/#/search?query=' + encodeURIComponent(word);
-  window.open(url, '_blank');
+  window.open('https://en.dict.naver.com/#/search?query=' + encodeURIComponent(word), '_blank');
 }
 
-// 음성 목록 미리 로드
 if (window.speechSynthesis) {
   window.speechSynthesis.getVoices();
   window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
