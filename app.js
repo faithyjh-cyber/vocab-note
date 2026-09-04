@@ -1,7 +1,11 @@
-// ── 발음 기능 (브라우저 내장 음성) ─────────────────────
+// ── 발음 기능 (브라우저 내장 음성, 미국식) ───────────────
 function speak(word, e) {
   if (e) e.stopPropagation();
   try {
+    if (!window.speechSynthesis) {
+      alert('이 브라우저에서는 발음이 지원되지 않아요.\n크롬으로 열거나 홈 화면 아이콘으로 열어주세요.');
+      return;
+    }
     window.speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(word);
     u.lang = 'en-US';

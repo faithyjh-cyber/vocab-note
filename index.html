@@ -6,6 +6,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="영단어">
 <title>영단어</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#c47a2a">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{background:#f7f3ed;color:#2c2418;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;min-height:100vh;max-width:480px;margin:0 auto}
@@ -97,6 +101,13 @@ input{background:#f7f2ea;border:1px solid rgba(0,0,0,0.08);border-radius:8px;col
   <div id="note-sec1" class="note-section active"></div>
   <div id="note-sec2" class="note-section"></div>
 </div>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+</script>
 <script src="data.js"></script>
 <script src="app.js"></script>
 </body>
