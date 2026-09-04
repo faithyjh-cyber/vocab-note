@@ -1,27 +1,38 @@
-// ── 발음 기능 (Google TTS - 미국식) ────────────────────
+// ── 발음 기능 (사전 오디오 + 폴백) ──────────────────────
 let audioEl = null;
 
 function speak(word, e) {
   if (e) e.stopPropagation();
-  const text = encodeURIComponent(word);
-  const url = 'https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=' + text;
+  const w = word.toLowerCase().replace(/[^a-z ]/g, '').trim();
+  if (!w) return;
 
-  try {
-    if (!audioEl) {
-      audioEl = new Audio();
-      audioEl.preload = 'auto';
-    }
-    audioEl.pause();
-    audioEl.src = url;
-    audioEl.playbackRate = 0.9;
-    const p = audioEl.play();
-    if (p && p.catch) p.catch(() => fallbackSpeak(word));
-  } catch (err) {
-    fallbackSpeak(word);
-  }
+  // 공백 있는 단어(ice cream 등)는 내장 음성으로
+  if (w.includes(' ')) { fallbackSpeak(word); return; }
+
+  if (!audioEl) audioEl = new Audio();
+
+  // 1순위: Free Dictionary API 오디오
+  fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + w)
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(data => {
+      let url = '';
+      for (const entry of data) {
+        for (const ph of (entry.phonetics || [])) {
+          if (ph.audio && /us|american/i.test(ph.audio)) { url = ph.audio; break; }
+          if (ph.audio && !url) url = ph.audio;
+        }
+        if (url) break;
+      }
+      if (!url) return Promise.reject();
+      audioEl.pause();
+      audioEl.src = url;
+      const p = audioEl.play();
+      if (p && p.catch) p.catch(() => fallbackSpeak(word));
+    })
+    .catch(() => fallbackSpeak(word));
 }
 
-// Google TTS 실패 시 브라우저 내장 음성으로
+// 브라우저 내장 음성
 function fallbackSpeak(word) {
   try {
     window.speechSynthesis.cancel();
