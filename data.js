@@ -146,6 +146,26 @@ const DAYS = [
     {label:'🚀 우주 · Space',words:[['space','스페이스','우주'],['planet','플래닛','행성'],['galaxy','갤럭시','은하'],['universe','유니버스','우주 전체'],['astronaut','애스트로넛','우주비행사'],['satellite','새틀라이트','인공위성'],['telescope','텔레스코프','망원경'],['gravity','그래비티','중력'],['orbit','오빗','궤도'],['comet','코멧','혜성']]},
     {label:'🔬 과학 · Science',words:[['energy','에너지','에너지'],['power','파워','힘/전력'],['heat','히트','열'],['ice','아이스','얼음'],['steam','스팀','수증기'],['magnet','매그넛','자석'],['metal','메탈','금속'],['plastic','플라스틱','플라스틱'],['glass','글래스','유리'],['experiment','익스페리먼트','실험']]}
   ]},
+  {day:36,title:'옷차림 & 꾸미기',subtitle:'Style & Accessories',sections:[
+    {label:'👗 옷차림 · Outfit',words:[['wear','웨어','입다'],['dress up','드레스업','차려입다'],['fit','핏','맞다'],['size','사이즈','치수'],['style','스타일','스타일'],['pocket','포켓','주머니'],['button','버튼','단추'],['zipper','지퍼','지퍼'],['belt','벨트','벨트'],['tie','타이','넥타이']]},
+    {label:'💎 장식 · Accessories',words:[['ring','링','반지'],['necklace','네클리스','목걸이'],['bracelet','브레이슬릿','팔찌'],['earring','이어링','귀걸이'],['watch','워치','손목시계'],['glasses','글래시즈','안경'],['umbrella','엄브렐라','우산'],['wallet','월릿','지갑'],['backpack','백팩','배낭'],['towel','타월','수건']]}
+  ]},
+  {day:37,title:'집안 물건',subtitle:'Household Items',sections:[
+    {label:'🛏️ 방 안 · In the Room',words:[['pillow','필로우','베개'],['blanket','블랭킷','이불'],['curtain','커튼','커튼'],['carpet','카펫','카펫'],['shelf','셸프','선반'],['drawer','드로어','서랍'],['closet','클로짓','옷장'],['basket','배스킷','바구니'],['box','박스','상자'],['bag','백','가방']]},
+    {label:'🍽️ 부엌 · In the Kitchen',words:[['fridge','프리지','냉장고'],['oven','오븐','오븐'],['pot','팟','냄비'],['pan','팬','프라이팬'],['bowl','보울','그릇'],['tray','트레이','쟁반'],['napkin','냅킨','냅킨'],['straw','스트로','빨대'],['soap','소프','비누'],['trash','트래시','쓰레기']]}
+  ]},
+  {day:38,title:'감각 & 느낌',subtitle:'Senses & Feelings',sections:[
+    {label:'👀 감각 · Senses',words:[['see','씨','보다'],['look','룩','바라보다'],['watch','워치','지켜보다'],['hear','히어','들리다'],['smell','스멜','냄새나다'],['touch','터치','만지다'],['feel','필','느끼다'],['sound','사운드','소리'],['loud','라우드','시끄러운'],['quiet','콰이엇','조용한']]},
+    {label:'✨ 느낌 · Sensations',words:[['warm','웜','따뜻한'],['cool','쿨','시원한'],['smooth','스무드','매끄러운'],['rough','러프','거친'],['sharp','샤프','날카로운'],['sticky','스티키','끈적한'],['wet','웻','젖은'],['dry','드라이','마른'],['fresh','프레시','신선한'],['dirty','더티','더러운']]}
+  ]},
+  {day:39,title:'시간 표현',subtitle:'Time Expressions',sections:[
+    {label:'⏳ 자주 쓰는 표현 · Frequency',words:[['now','나우','지금'],['soon','순','곧'],['later','레이터','나중에'],['early','얼리','일찍'],['late','레이트','늦게'],['often','오픈','자주'],['sometimes','썸타임즈','때때로'],['usually','유주얼리','보통'],['rarely','레어리','드물게'],['daily','데일리','매일']]},
+    {label:'📅 기간 · Duration',words:[['before','비포','~전에'],['after','애프터','~후에'],['during','듀링','~동안'],['until','언틸','~까지'],['while','와일','~하는 동안'],['begin','비긴','시작하다'],['end','엔드','끝나다'],['continue','컨티뉴','계속하다'],['stop','스탑','멈추다'],['finish','피니시','마치다']]}
+  ]},
+  {day:40,title:'생각 & 말하기',subtitle:'Thinking & Speaking',sections:[
+    {label:'💭 생각 · Thinking',words:[['know','노우','알다'],['understand','언더스탠드','이해하다'],['believe','빌리브','믿다'],['guess','게스','추측하다'],['wonder','원더','궁금하다'],['decide','디사이드','결정하다'],['choose','추즈','선택하다'],['plan','플랜','계획하다'],['agree','어그리','동의하다'],['mean','민','의미하다']]},
+    {label:'🗣️ 말하기 · Speaking',words:[['say','세이','말하다'],['tell','텔','알려주다'],['ask','애스크','묻다'],['answer','앤서','대답하다'],['explain','익스플레인','설명하다'],['talk','토크','이야기하다'],['discuss','디스커스','논의하다'],['repeat','리핏','반복하다'],['promise','프라미스','약속하다'],['advise','어드바이즈','조언하다']]}
+  ]},
 ];
 
 const DICT = {};
