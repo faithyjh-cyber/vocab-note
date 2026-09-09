@@ -99,9 +99,16 @@ let dataMap={1:null,2:null};
 
 // ── 메인 탭 ───────────────────────────────────────────
 function switchMain(tab) {
-  document.querySelectorAll('.main-tab').forEach((t,i)=>t.classList.toggle('on',(i===0&&tab==='word')||(i===1&&tab==='note')));
-  document.getElementById('page-word').classList.toggle('active',tab==='word');
-  document.getElementById('page-note').classList.toggle('active',tab==='note');
+  const tabs = ['word','note','math'];
+  document.querySelectorAll('.main-tab').forEach((t,i)=>t.classList.toggle('on', tabs[i]===tab));
+  tabs.forEach(name=>{
+    const el = document.getElementById('page-'+name);
+    if (el) el.classList.toggle('active', name===tab);
+  });
+  if (tab==='math' && !window._mathInit) {
+    window._mathInit = true;
+    renderMathHome();
+  }
 }
 
 // ── 단어 탭 ───────────────────────────────────────────

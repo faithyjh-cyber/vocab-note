@@ -73,12 +73,59 @@ input{background:#f7f2ea;border:1px solid rgba(0,0,0,0.08);border-radius:8px;col
 .note-header{text-align:center;padding:12px 0 16px}
 .note-header h2{font-size:18px;font-weight:900}
 .note-header p{font-size:12px;color:#a0927c;margin-top:3px}
+/* 수학 */
+.math-header{text-align:center;padding:12px 0 16px}
+.math-header h2{font-size:18px;font-weight:900}
+.math-header p{font-size:12px;color:#a0927c;margin-top:3px}
+.math-card{background:#fff;border-radius:14px;padding:18px 16px;margin-bottom:14px;border:1px solid rgba(0,0,0,.07)}
+.math-card.center{text-align:center}
+.math-q{font-size:30px;font-weight:800;text-align:center;padding:24px 0 20px;line-height:1.4;color:#2c2418}
+.math-input{background:#f7f2ea;border:2px solid rgba(0,0,0,.1);border-radius:10px;font-size:20px;text-align:center;padding:12px;width:100%;font-weight:700;margin-bottom:10px}
+.math-input:focus{border-color:#2a7a9e;outline:none}
+.math-input:disabled{opacity:.7}
+.math-fb{text-align:center;font-size:14px;font-weight:700;min-height:24px;margin-bottom:10px}
+.math-fb.ok{color:#4caf6e}.math-fb.no{color:#d94f4f}
+.math-btn{width:100%;padding:13px;border-radius:10px;border:none;background:#2a7a9e;color:#fff;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:8px}
+.math-btn.ghost{background:transparent;color:#8a7a68;border:1px solid rgba(0,0,0,.12)}
+.math-btn:active{opacity:.85}
+.math-hint{text-align:center;font-size:11px;color:#a0927c;line-height:1.7;margin-top:4px}
+.math-progress{background:rgba(0,0,0,.07);border-radius:20px;height:6px;overflow:hidden;margin-bottom:14px}
+.math-bar{height:100%;background:#2a7a9e;border-radius:20px;transition:width .3s}
+.math-result{background:#fff;border-radius:14px;padding:28px 16px;text-align:center;margin-bottom:14px;border:1px solid rgba(0,0,0,.07)}
+.math-score{font-size:46px;font-weight:900;color:#2a7a9e;line-height:1}
+.math-score span{font-size:22px;color:#a0927c}
+.math-rate{font-size:14px;color:#8a7a68;margin-top:6px}
+.math-levelup{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:12px;padding:14px;text-align:center;font-size:14px;color:#2e7d32;line-height:1.7;margin-bottom:14px}
+.math-leveldown{background:#fff3e0;border:1px solid #ffcc80;border-radius:12px;padding:14px;text-align:center;font-size:14px;color:#e65100;line-height:1.7;margin-bottom:14px}
+.math-lv-badge{display:inline-block;background:#2a7a9e;color:#fff;font-size:13px;font-weight:800;padding:5px 14px;border-radius:20px;margin-bottom:10px}
+.math-lv-name{font-size:18px;font-weight:800;margin-bottom:4px}
+.math-lv-desc{font-size:12px;color:#a0927c;margin-bottom:18px}
+.math-lv-row{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;font-size:13px}
+.math-lv-row.on{background:#e3f4fb;font-weight:700}
+.math-lv-row.done{opacity:.5}
+.mlr-num{font-size:11px;font-weight:700;color:#2a7a9e;width:34px;flex-shrink:0}
+.math-wrong{background:#f7f2ea;border-radius:8px;padding:10px 12px;margin-bottom:6px}
+.mw-q{font-size:15px;font-weight:700;margin-bottom:4px}
+.mw-a{font-size:12px;color:#8a7a68}
+.mw-a .ok{color:#4caf6e;font-weight:700}
+.mw-a .no{color:#d94f4f;font-weight:700}
+.math-hist{display:flex;align-items:center;justify-content:space-between;padding:8px 4px;border-bottom:1px solid rgba(0,0,0,.05);font-size:12px}
+.math-hist:last-child{border-bottom:none}
+.mh-date{color:#a0927c;width:44px}
+.mh-lv{color:#8a7a68;font-size:11px}
+.mh-score{font-weight:700}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 2px;line-height:1.15}
+.fr-n{border-bottom:2px solid #2c2418;padding:0 5px}
+.fr-d{padding:0 5px}
+.mx{display:inline-flex;align-items:center;gap:3px}
+.mx-w{font-size:1em}
 </style>
 </head>
 <body>
 <div class="main-tabs">
-  <button class="main-tab on" onclick="switchMain('word')">📖 오늘의 단어</button>
-  <button class="main-tab" onclick="switchMain('note')">📝 오답노트</button>
+  <button class="main-tab on" onclick="switchMain('word')">📖 단어</button>
+  <button class="main-tab" onclick="switchMain('note')">📝 오답</button>
+  <button class="main-tab" onclick="switchMain('math')">🔢 수학</button>
 </div>
 <div id="page-word" class="page active">
   <div class="word-header">
@@ -101,6 +148,7 @@ input{background:#f7f2ea;border:1px solid rgba(0,0,0,0.08);border-radius:8px;col
   <div id="note-sec1" class="note-section active"></div>
   <div id="note-sec2" class="note-section"></div>
 </div>
+<div id="page-math" class="page"></div>
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -109,6 +157,7 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 <script src="data.js"></script>
+<script src="math.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
