@@ -166,6 +166,46 @@ const DAYS = [
     {label:'💭 생각 · Thinking',words:[['know','노우','알다'],['understand','언더스탠드','이해하다'],['believe','빌리브','믿다'],['guess','게스','추측하다'],['wonder','원더','궁금하다'],['decide','디사이드','결정하다'],['choose','추즈','선택하다'],['plan','플랜','계획하다'],['agree','어그리','동의하다'],['mean','민','의미하다']]},
     {label:'🗣️ 말하기 · Speaking',words:[['say','세이','말하다'],['tell','텔','알려주다'],['ask','애스크','묻다'],['answer','앤서','대답하다'],['explain','익스플레인','설명하다'],['talk','토크','이야기하다'],['discuss','디스커스','논의하다'],['repeat','리핏','반복하다'],['promise','프라미스','약속하다'],['advise','어드바이즈','조언하다']]}
   ]},
+  {day:41,title:'돈 & 쇼핑',subtitle:'Money & Shopping',sections:[
+    {label:'💰 돈 · Money',words:[['money','머니','돈'],['cash','캐시','현금'],['coin','코인','동전'],['bill','빌','지폐/청구서'],['price','프라이스','가격'],['cost','코스트','비용'],['cheap','칩','싼'],['expensive','익스펜시브','비싼'],['change','체인지','거스름돈'],['save','세이브','저축하다']]},
+    {label:'🛒 쇼핑 · Shopping',words:[['shop','샵','가게/쇼핑하다'],['customer','커스터머','손님'],['clerk','클럭','점원'],['cart','카트','카트'],['receipt','리싯','영수증'],['discount','디스카운트','할인'],['sale','세일','판매/할인'],['order','오더','주문하다'],['pay','페이','지불하다'],['refund','리펀드','환불']]}
+  ]},
+  {day:42,title:'몸 상태 & 동작',subtitle:'Body Actions',sections:[
+    {label:'🙆 자세 · Posture',words:[['bend','벤드','구부리다'],['stretch','스트레치','뻗다'],['turn','턴','돌다'],['lie','라이','눕다'],['kneel','닐','무릎 꿇다'],['lean','린','기대다'],['shake','셰이크','흔들다'],['nod','노드','고개 끄덕이다'],['point','포인트','가리키다'],['wave','웨이브','손 흔들다']]},
+    {label:'💪 힘 · Effort',words:[['hold','홀드','잡다'],['catch','캐치','받다/잡다'],['throw','쓰로우','던지다'],['kick','킥','차다'],['lift','리프트','들어올리다'],['drop','드롭','떨어뜨리다'],['break','브레이크','부수다'],['build','빌드','짓다'],['dig','디그','파다'],['tie','타이','묶다']]}
+  ]},
+  {day:43,title:'날씨 심화 & 재해',subtitle:'Weather & Disasters',sections:[
+    {label:'🌦️ 날씨 심화 · Weather',words:[['storm','스톰','폭풍'],['thunder','썬더','천둥'],['lightning','라이트닝','번개'],['fog','포그','안개'],['frost','프로스트','서리'],['humid','휴미드','습한'],['temperature','템퍼러처','온도'],['degree','디그리','도(온도)'],['forecast','포캐스트','일기예보'],['season','시즌','계절']]},
+    {label:'⚠️ 재해 · Disasters',words:[['flood','플러드','홍수'],['drought','드라우트','가뭄'],['typhoon','타이푼','태풍'],['earthquake','어스퀘이크','지진'],['fire','파이어','불/화재'],['danger','데인저','위험'],['warning','워닝','경고'],['escape','이스케이프','탈출하다'],['rescue','레스큐','구조하다'],['protect','프로텍트','보호하다']]}
+  ]},
+  {day:44,title:'성격 & 태도',subtitle:'Personality',sections:[
+    {label:'😊 좋은 성격 · Good Traits',words:[['friendly','프렌들리','친근한'],['honest','아니스트','정직한'],['polite','폴라이트','예의 바른'],['patient','페이션트','참을성 있는'],['generous','제너러스','너그러운'],['careful','케어풀','조심스러운'],['smart','스마트','똑똑한'],['funny','퍼니','재미있는'],['gentle','젠틀','온순한'],['humble','험블','겸손한']]},
+    {label:'😐 다른 성격 · Other Traits',words:[['lazy','레이지','게으른'],['selfish','셀피시','이기적인'],['rude','루드','무례한'],['strict','스트릭트','엄격한'],['serious','시리어스','진지한'],['curious','큐리어스','호기심 많은'],['active','액티브','활발한'],['careless','케어리스','부주의한'],['stubborn','스터번','고집 센'],['cheerful','치어풀','명랑한']]}
+  ]},
+  {day:45,title:'학용품 & 활동',subtitle:'School Activities',sections:[
+    {label:'📔 학용품 심화 · Supplies',words:[['textbook','텍스트북','교과서'],['workbook','워크북','문제집'],['diary','다이어리','일기장'],['folder','폴더','서류철'],['marker','마커','마커'],['highlighter','하이라이터','형광펜'],['stapler','스테이플러','스테이플러'],['tape','테이프','테이프'],['calculator','캘큘레이터','계산기'],['locker','라커','사물함']]},
+    {label:'🎒 활동 · Activities',words:[['project','프로젝트','과제'],['report','리포트','보고서'],['presentation','프레젠테이션','발표'],['group','그룹','모둠'],['team','팀','팀'],['contest','콘테스트','대회'],['prize','프라이즈','상'],['field trip','필드트립','현장학습'],['festival','페스티벌','축제'],['club','클럽','동아리']]}
+  ]},
+  {day:46,title:'가족 & 관계',subtitle:'Family & Relationships',sections:[
+    {label:'👪 관계 · Relationships',words:[['relative','렐러티브','친척'],['neighbor','네이버','이웃'],['guest','게스트','손님'],['partner','파트너','짝/동료'],['classmate','클래스메이트','반 친구'],['roommate','룸메이트','룸메이트'],['boss','보스','상사'],['leader','리더','지도자'],['member','멤버','구성원'],['stranger','스트레인저','낯선 사람']]},
+    {label:'💬 사귐 · Getting Along',words:[['meet','밋','만나다'],['greet','그릿','인사하다'],['invite','인바이트','초대하다'],['join','조인','함께하다'],['share','셰어','나누다'],['care','케어','돌보다'],['respect','리스펙트','존중하다'],['trust','트러스트','믿다'],['argue','아규','다투다'],['apologize','어폴로자이즈','사과하다']]}
+  ]},
+  {day:47,title:'교통 & 안전',subtitle:'Traffic & Safety',sections:[
+    {label:'🚦 교통 · Traffic',words:[['traffic','트래픽','교통'],['signal','시그널','신호'],['crosswalk','크로스워크','횡단보도'],['sidewalk','사이드워크','인도'],['bridge','브리지','다리'],['tunnel','터널','터널'],['corner','코너','모퉁이'],['speed','스피드','속도'],['parking','파킹','주차'],['seatbelt','시트벨트','안전벨트']]},
+    {label:'🛡️ 안전 · Safety',words:[['careful','케어풀','조심하는'],['helmet','헬멧','헬멧'],['accident','액시던트','사고'],['emergency','이머전시','비상'],['ambulance','앰뷸런스','구급차'],['injury','인저리','부상'],['bandage','밴디지','붕대'],['rule','룰','규칙'],['obey','오베이','따르다'],['report','리포트','신고하다']]}
+  ]},
+  {day:48,title:'환경 & 자연 보호',subtitle:'Environment',sections:[
+    {label:'🌍 환경 · Environment',words:[['environment','인바이런먼트','환경'],['pollution','폴루션','오염'],['recycle','리사이클','재활용하다'],['waste','웨이스트','낭비/쓰레기'],['plastic','플라스틱','플라스틱'],['reuse','리유즈','재사용하다'],['reduce','리듀스','줄이다'],['clean up','클린업','치우다'],['plant','플랜트','식물/심다'],['grow','그로우','자라다']]},
+    {label:'🐋 생태 · Ecology',words:[['nature','네이처','자연'],['animal','애니멀','동물'],['plant','플랜트','식물'],['insect','인섹트','곤충'],['seed','시드','씨앗'],['root','루트','뿌리'],['branch','브랜치','나뭇가지'],['soil','소일','흙'],['air','에어','공기'],['climate','클라이밋','기후']]}
+  ]},
+  {day:49,title:'문화 & 예술',subtitle:'Culture & Arts',sections:[
+    {label:'🎭 예술 · Arts',words:[['art','아트','예술'],['painting','페인팅','그림'],['drawing','드로잉','소묘'],['sculpture','스컬프처','조각'],['photo','포토','사진'],['movie','무비','영화'],['drama','드라마','드라마'],['stage','스테이지','무대'],['concert','콘서트','콘서트'],['gallery','갤러리','미술관']]},
+    {label:'🎵 음악 & 문학 · Music & Books',words:[['song','송','노래'],['band','밴드','밴드'],['piano','피아노','피아노'],['guitar','기타','기타'],['drum','드럼','드럼'],['violin','바이올린','바이올린'],['story','스토리','이야기'],['poem','포엠','시'],['novel','노블','소설'],['author','오써','저자']]}
+  ]},
+  {day:50,title:'꿈 & 미래',subtitle:'Dreams & Future',sections:[
+    {label:'🌟 꿈 · Dreams',words:[['dream','드림','꿈'],['goal','골','목표'],['future','퓨처','미래'],['wish','위시','바라다'],['want','원트','원하다'],['need','니드','필요하다'],['try','트라이','노력하다'],['succeed','석시드','성공하다'],['fail','페일','실패하다'],['keep','킵','계속하다']]},
+    {label:'🚀 성장 · Growing',words:[['grow up','그로우업','자라다'],['change','체인지','변하다'],['improve','임프루브','나아지다'],['effort','에포트','노력'],['challenge','챌린지','도전'],['chance','챈스','기회'],['ready','레디','준비된'],['strong','스트롱','강한'],['proud','프라우드','자랑스러운'],['happy','해피','행복한']]}
+  ]},
 ];
 
 const DICT = {};
