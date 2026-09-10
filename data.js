@@ -1,5 +1,5 @@
 const API = 'https://script.google.com/a/macros/cgnmail.net/s/AKfycbxbwQiyQr9uSpM_Xte97hfwE4pvQQaKWFRJ9uINBaT6sq0YilvnEj0yh34EVn_DVAVDaQ/exec';
-const START_DATE = new Date('2026-07-22');
+const START_DATE = new Date('2026-07-21');
 const KIDS = {
   1:{name:'하준',total:20,color:'#c47a2a',cls:'btn1'},
   2:{name:'하민',total:10,color:'#2a7a9e',cls:'btn2'}
