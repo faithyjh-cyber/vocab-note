@@ -246,6 +246,166 @@ const DAYS = [
     {label:'🌐 사회 · Society',words:[['people','피플','사람들'],['society','소사이어티','사회'],['community','커뮤니티','공동체'],['village','빌리지','마을'],['town','타운','읍/도시'],['capital','캐피털','수도'],['nation','네이션','국가'],['government','거번먼트','정부'],['law','로','법'],['history','히스토리','역사']]},
     {label:'🤝 함께 · Together',words:[['help','헬프','돕다'],['volunteer','발런티어','자원봉사'],['donate','도네이트','기부하다'],['support','서포트','지원하다'],['peace','피스','평화'],['equal','이퀄','평등한'],['freedom','프리덤','자유'],['duty','듀티','의무'],['citizen','시티즌','시민'],['culture','컬처','문화']]}
   ]},
+  {day:61,title:'묘사하는 말 1',subtitle:'Describing People',sections:[
+    {label:'👤 사람 묘사 · Appearance',words:[['handsome','핸섬','잘생긴'],['pretty','프리티','예쁜'],['ugly','어글리','못생긴'],['thin','씬','마른'],['fat','팻','뚱뚱한'],['young','영','어린'],['elderly','엘더리','연세 드신'],['blond','블론드','금발의'],['curly','컬리','곱슬의'],['bald','볼드','대머리의']]},
+    {label:'🧠 성향 · Character',words:[['confident','컨피던트','자신감 있는'],['shy','샤이','수줍은'],['clever','클레버','영리한'],['foolish','풀리시','어리석은'],['brave','브레이브','용감한'],['nervous','너버스','불안한'],['loyal','로열','충실한'],['selfless','셀프리스','이타적인'],['modest','모디스트','겸손한'],['arrogant','애러건트','거만한']]}
+  ]},
+  {day:62,title:'묘사하는 말 2',subtitle:'Describing Things',sections:[
+    {label:'📦 사물 · Objects',words:[['useful','유스풀','쓸모 있는'],['useless','유슬리스','쓸모없는'],['common','커먼','흔한'],['rare','레어','드문'],['modern','모던','현대의'],['ancient','에인션트','고대의'],['natural','내추럴','자연의'],['artificial','아티피셜','인공의'],['solid','솔리드','단단한'],['hollow','할로우','속이 빈']]},
+    {label:'⭐ 평가 · Quality',words:[['excellent','엑설런트','훌륭한'],['terrible','테러블','끔찍한'],['perfect','퍼펙트','완벽한'],['normal','노멀','보통의'],['special','스페셜','특별한'],['similar','시밀러','비슷한'],['different','디퍼런트','다른'],['important','임포턴트','중요한'],['necessary','네세서리','필요한'],['possible','파서블','가능한']]}
+  ]},
+  {day:63,title:'행동 동사 1',subtitle:'Action Verbs 1',sections:[
+    {label:'🏃 움직임 · Motion',words:[['move','무브','움직이다'],['follow','팔로우','따라가다'],['lead','리드','이끌다'],['enter','엔터','들어가다'],['exit','엑싯','나가다'],['return','리턴','돌아오다'],['arrive','어라이브','도착하다'],['leave','리브','떠나다'],['travel','트래블','이동하다'],['reach','리치','닿다']]},
+    {label:'✋ 손 동작 · Handling',words:[['grab','그랩','움켜쥐다'],['press','프레스','누르다'],['pull','풀','끌다'],['carry','캐리','나르다'],['deliver','딜리버','배달하다'],['collect','컬렉트','모으다'],['gather','개더','모이다'],['spread','스프레드','펴다'],['attach','어태치','붙이다'],['remove','리무브','제거하다']]}
+  ]},
+  {day:64,title:'행동 동사 2',subtitle:'Action Verbs 2',sections:[
+    {label:'🧩 만들기 · Creating',words:[['produce','프로듀스','생산하다'],['invent','인벤트','발명하다'],['develop','디벨럽','개발하다'],['form','폼','형성하다'],['shape','셰이프','모양을 만들다'],['repair','리페어','수리하다'],['destroy','디스트로이','파괴하다'],['damage','대미지','손상시키다'],['replace','리플레이스','교체하다'],['complete','컴플리트','완성하다']]},
+    {label:'🔍 살피기 · Examining',words:[['check','체크','확인하다'],['examine','이그재민','조사하다'],['discover','디스커버','발견하다'],['search','서치','찾다'],['notice','노티스','알아차리다'],['observe','옵저브','관찰하다'],['compare','컴페어','비교하다'],['measure','메저','측정하다'],['count','카운트','세다'],['record','리코드','기록하다']]}
+  ]},
+  {day:65,title:'생각과 판단',subtitle:'Thinking & Judging',sections:[
+    {label:'💭 사고 · Thought',words:[['consider','컨시더','고려하다'],['imagine','이매진','상상하다'],['realize','리얼라이즈','깨닫다'],['remind','리마인드','상기시키다'],['expect','익스펙트','예상하다'],['suppose','서포즈','가정하다'],['doubt','다웃','의심하다'],['prefer','프리퍼','선호하다'],['intend','인텐드','의도하다'],['recall','리콜','회상하다']]},
+    {label:'⚖️ 판단 · Judgment',words:[['judge','저지','판단하다'],['accept','액셉트','받아들이다'],['refuse','리퓨즈','거절하다'],['allow','얼라우','허락하다'],['forbid','포비드','금지하다'],['approve','어프루브','승인하다'],['object','오브젝트','반대하다'],['support','서포트','지지하다'],['admit','어드밋','인정하다'],['deny','디나이','부인하다']]}
+  ]},
+  {day:66,title:'말과 소통',subtitle:'Speech & Communication',sections:[
+    {label:'🗨️ 말하기 · Speaking',words:[['express','익스프레스','표현하다'],['describe','디스크라이브','묘사하다'],['mention','멘션','언급하다'],['announce','어나운스','알리다'],['declare','디클레어','선언하다'],['suggest','서제스트','제안하다'],['insist','인시스트','주장하다'],['complain','컴플레인','불평하다'],['whisper','위스퍼','속삭이다'],['shout','샤우트','외치다']]},
+    {label:'📬 소통 · Communication',words:[['contact','컨택트','연락하다'],['inform','인폼','알려주다'],['reply','리플라이','답장하다'],['translate','트랜슬레이트','번역하다'],['message','메시지','메시지'],['signal','시그널','신호'],['gesture','제스처','몸짓'],['expression','익스프레션','표현'],['conversation','컨버세이션','대화'],['argument','아규먼트','논쟁']]}
+  ]},
+  {day:67,title:'수량과 정도',subtitle:'Quantity & Degree',sections:[
+    {label:'📊 수량 · Quantity',words:[['amount','어마운트','양'],['quantity','콴터티','수량'],['several','세버럴','몇몇의'],['various','베리어스','다양한'],['whole','호울','전체의'],['entire','인타이어','전부의'],['single','싱글','하나의'],['double','더블','두 배의'],['average','애버리지','평균의'],['extra','엑스트라','추가의']]},
+    {label:'📈 정도 · Degree',words:[['enough','이너프','충분한'],['almost','올모스트','거의'],['nearly','니얼리','거의'],['barely','베얼리','간신히'],['quite','콰이트','꽤'],['rather','래더','다소'],['extremely','익스트림리','극도로'],['slightly','슬라이틀리','약간'],['completely','컴플리틀리','완전히'],['mostly','모스틀리','대부분']]}
+  ]},
+  {day:68,title:'시간과 순서',subtitle:'Time & Order',sections:[
+    {label:'⏰ 시점 · Points in Time',words:[['moment','모먼트','순간'],['period','피리어드','기간'],['century','센추리','세기'],['decade','데케이드','십 년'],['recent','리슨트','최근의'],['current','커런트','현재의'],['ancient','에인션트','고대의'],['modern','모던','현대의'],['temporary','템퍼러리','일시적인'],['permanent','퍼머넌트','영구적인']]},
+    {label:'🔢 순서 · Sequence',words:[['order','오더','순서'],['previous','프리비어스','이전의'],['following','팔로잉','다음의'],['final','파이널','마지막의'],['original','오리지널','원래의'],['recently','리슨틀리','최근에'],['already','올레디','이미'],['immediately','이미디엇리','즉시'],['eventually','이벤추얼리','결국'],['gradually','그래주얼리','점차']]}
+  ]},
+  {day:69,title:'원인과 결과',subtitle:'Cause & Effect',sections:[
+    {label:'🔗 원인 · Cause',words:[['cause','코즈','원인/일으키다'],['reason','리즌','이유'],['because','비코즈','때문에'],['since','신스','~이므로'],['due to','듀 투','~때문에'],['lead to','리드 투','~로 이어지다'],['depend','디펜드','의존하다'],['affect','어펙트','영향을 주다'],['influence','인플루언스','영향'],['factor','팩터','요인']]},
+    {label:'🎯 결과 · Effect',words:[['result','리절트','결과'],['effect','이펙트','효과'],['consequence','컨시퀀스','결과'],['therefore','데어포어','그러므로'],['thus','더스','따라서'],['so that','소 댓','~하도록'],['produce','프로듀스','낳다'],['create','크리에이트','만들어내다'],['prevent','프리벤트','막다'],['solve','솔브','해결하다']]}
+  ]},
+  {day:70,title:'비교와 대조',subtitle:'Comparison & Contrast',sections:[
+    {label:'⚖️ 비교 · Comparison',words:[['compare','컴페어','비교하다'],['contrast','컨트래스트','대조하다'],['similar','시밀러','유사한'],['alike','얼라이크','비슷한'],['equal','이퀄','동등한'],['match','매치','일치하다'],['resemble','리젬블','닮다'],['both','보스','둘 다'],['either','이더','둘 중 하나'],['neither','니더','둘 다 아닌']]},
+    {label:'↔️ 대조 · Contrast',words:[['however','하우에버','그러나'],['although','올도우','비록 ~지만'],['despite','디스파이트','~에도 불구하고'],['instead','인스테드','대신에'],['otherwise','아더와이즈','그렇지 않으면'],['unlike','언라이크','~와 달리'],['opposite','오퍼짓','반대의'],['except','익셉트','~을 제외하고'],['while','와일','반면에'],['yet','옛','그러나']]}
+  ]},
+  {day:71,title:'문제와 해결',subtitle:'Problems & Solutions',sections:[
+    {label:'⚠️ 문제 · Problems',words:[['problem','프라블럼','문제'],['issue','이슈','사안'],['trouble','트러블','곤란'],['difficulty','디피컬티','어려움'],['mistake','미스테이크','실수'],['error','에러','오류'],['fault','폴트','잘못'],['risk','리스크','위험'],['challenge','챌린지','도전 과제'],['conflict','컨플릭트','갈등']]},
+    {label:'💡 해결 · Solutions',words:[['solution','솔루션','해결책'],['method','메서드','방법'],['approach','어프로치','접근법'],['strategy','스트래티지','전략'],['advice','어드바이스','조언'],['suggestion','서제스천','제안'],['improve','임프루브','개선하다'],['adjust','어저스트','조정하다'],['overcome','오버컴','극복하다'],['succeed','석시드','성공하다']]}
+  ]},
+  {day:72,title:'감정 표현 심화 2',subtitle:'Advanced Emotions',sections:[
+    {label:'😌 긍정 · Positive',words:[['delighted','딜라이티드','아주 기쁜'],['satisfied','새티스파이드','만족한'],['grateful','그레이트풀','감사하는'],['relieved','릴리브드','안도한'],['eager','이거','열망하는'],['content','컨텐트','만족하는'],['pleasant','플레전트','유쾌한'],['comfortable','컴퍼터블','편안한'],['peaceful','피스풀','평온한'],['impressed','임프레스트','감명받은']]},
+    {label:'😔 부정 · Negative',words:[['disappointed','디서포인티드','실망한'],['frustrated','프러스트레이티드','좌절한'],['annoyed','어노이드','짜증난'],['anxious','앵셔스','불안한'],['embarrassed','임배러스트','당황한'],['guilty','길티','죄책감이 드는'],['regret','리그렛','후회하다'],['depressed','디프레스트','우울한'],['furious','퓨리어스','격노한'],['ashamed','어셰임드','부끄러운']]}
+  ]},
+  {day:73,title:'사회와 제도',subtitle:'Society & Systems',sections:[
+    {label:'🏛️ 제도 · Institutions',words:[['system','시스템','체계'],['policy','폴리시','정책'],['election','일렉션','선거'],['vote','보트','투표하다'],['leader','리더','지도자'],['official','오피셜','공무원/공식의'],['organization','오거나이제이션','조직'],['committee','커미티','위원회'],['budget','버짓','예산'],['tax','택스','세금']]},
+    {label:'⚖️ 권리 · Rights',words:[['right','라이트','권리'],['duty','듀티','의무'],['justice','저스티스','정의'],['equality','이퀄리티','평등'],['freedom','프리덤','자유'],['protect','프로텍트','보호하다'],['respect','리스펙트','존중하다'],['responsible','리스판서블','책임 있는'],['permit','퍼밋','허가하다'],['punish','퍼니시','처벌하다']]}
+  ]},
+  {day:74,title:'과학과 기술',subtitle:'Science & Technology',sections:[
+    {label:'🔬 과학 · Science',words:[['research','리서치','연구'],['theory','띠어리','이론'],['evidence','에비던스','증거'],['prove','프루브','증명하다'],['analyze','애널라이즈','분석하다'],['data','데이터','자료'],['method','메서드','방법'],['result','리절트','결과'],['discovery','디스커버리','발견'],['invention','인벤션','발명']]},
+    {label:'⚙️ 기술 · Technology',words:[['technology','테크놀로지','기술'],['device','디바이스','기기'],['function','펑션','기능'],['operate','오퍼레이트','작동하다'],['connect','커넥트','연결하다'],['program','프로그램','프로그램'],['digital','디지털','디지털의'],['automatic','오토매틱','자동의'],['efficient','이피션트','효율적인'],['advanced','어드밴스드','진보된']]}
+  ]},
+  {day:75,title:'경제와 거래',subtitle:'Economy & Trade',sections:[
+    {label:'💵 경제 · Economy',words:[['economy','이코노미','경제'],['income','인컴','수입'],['expense','익스펜스','지출'],['profit','프라핏','이익'],['loss','로스','손실'],['value','밸류','가치'],['worth','워스','~의 가치가 있는'],['invest','인베스트','투자하다'],['afford','어포드','여유가 되다'],['debt','뎃','빚']]},
+    {label:'🤝 거래 · Trade',words:[['trade','트레이드','거래하다'],['exchange','익스체인지','교환하다'],['supply','서플라이','공급하다'],['demand','디맨드','수요/요구하다'],['product','프로덕트','제품'],['service','서비스','서비스'],['contract','컨트랙트','계약'],['agreement','어그리먼트','합의'],['deal','딜','거래'],['negotiate','니고시에이트','협상하다']]}
+  ]},
+  {day:76,title:'환경과 지구',subtitle:'Environment & Earth',sections:[
+    {label:'🌍 지구 · Earth',words:[['planet','플래닛','행성'],['surface','서피스','표면'],['ocean','오션','대양'],['continent','컨티넌트','대륙'],['region','리전','지역'],['climate','클라이밋','기후'],['atmosphere','애트모스피어','대기'],['resource','리소스','자원'],['energy','에너지','에너지'],['species','스피시즈','종']]},
+    {label:'♻️ 보호 · Conservation',words:[['pollute','폴루트','오염시키다'],['destroy','디스트로이','파괴하다'],['preserve','프리저브','보존하다'],['conserve','컨서브','아껴 쓰다'],['recycle','리사이클','재활용하다'],['renewable','리뉴어블','재생 가능한'],['sustainable','서스테이너블','지속 가능한'],['survive','서바이브','살아남다'],['extinct','익스팅트','멸종된'],['balance','밸런스','균형']]}
+  ]},
+  {day:77,title:'건강과 의학',subtitle:'Health & Medicine',sections:[
+    {label:'🩺 의학 · Medicine',words:[['patient','페이션트','환자'],['symptom','심텀','증상'],['disease','디지즈','질병'],['infection','인펙션','감염'],['virus','바이러스','바이러스'],['vaccine','백신','백신'],['surgery','서저리','수술'],['diagnose','다이어그노즈','진단하다'],['prescribe','프리스크라이브','처방하다'],['cure','큐어','치료하다']]},
+    {label:'💚 건강 · Wellness',words:[['nutrition','뉴트리션','영양'],['balanced','밸런스트','균형 잡힌'],['regular','레귤러','규칙적인'],['habit','해빗','습관'],['prevent','프리벤트','예방하다'],['recover','리커버','회복하다'],['strength','스트렝스','힘'],['fitness','피트니스','체력'],['rest','레스트','휴식'],['immune','이뮨','면역의']]}
+  ]},
+  {day:78,title:'교육과 학문',subtitle:'Education & Academics',sections:[
+    {label:'🎓 교육 · Education',words:[['education','에듀케이션','교육'],['knowledge','날리지','지식'],['subject','서브젝트','과목'],['degree','디그리','학위'],['scholar','스칼러','학자'],['research','리서치','연구하다'],['lecture','렉처','강의'],['seminar','세미나','세미나'],['curriculum','커리큘럼','교육과정'],['graduate','그래주에이트','졸업하다']]},
+    {label:'📖 학습 · Learning',words:[['concept','컨셉트','개념'],['principle','프린시플','원리'],['definition','데피니션','정의'],['example','이그잼플','예시'],['exercise','엑서사이즈','연습문제'],['assignment','어사인먼트','과제'],['essay','에세이','논술'],['reference','레퍼런스','참고자료'],['summary','서머리','요약'],['conclusion','컨클루전','결론']]}
+  ]},
+  {day:79,title:'예술과 문학',subtitle:'Arts & Literature',sections:[
+    {label:'🎨 예술 · Arts',words:[['creative','크리에이티브','창의적인'],['artistic','아티스틱','예술적인'],['perform','퍼폼','공연하다'],['audience','오디언스','관객'],['exhibition','엑시비션','전시회'],['masterpiece','마스터피스','걸작'],['style','스타일','양식'],['classic','클래식','고전의'],['modern','모던','현대의'],['inspire','인스파이어','영감을 주다']]},
+    {label:'📚 문학 · Literature',words:[['literature','리터러처','문학'],['character','캐릭터','등장인물'],['plot','플롯','줄거리'],['theme','씸','주제'],['setting','세팅','배경'],['fiction','픽션','소설'],['biography','바이오그래피','전기'],['publish','퍼블리시','출판하다'],['edition','에디션','판'],['translate','트랜슬레이트','번역하다']]}
+  ]},
+  {day:80,title:'여행과 문화',subtitle:'Travel & Culture',sections:[
+    {label:'✈️ 여행 · Travel',words:[['journey','저니','여정'],['destination','데스티네이션','목적지'],['departure','디파처','출발'],['arrival','어라이벌','도착'],['accommodation','어커머데이션','숙소'],['reservation','레저베이션','예약'],['schedule','스케줄','일정'],['route','루트','경로'],['souvenir','수버니어','기념품'],['explore','익스플로어','탐험하다']]},
+    {label:'🌏 문화 · Culture',words:[['tradition','트러디션','전통'],['custom','커스텀','관습'],['heritage','헤리티지','유산'],['festival','페스티벌','축제'],['ceremony','세러모니','의식'],['religion','릴리전','종교'],['diverse','다이버스','다양한'],['global','글로벌','세계적인'],['local','로컬','현지의'],['adapt','어댑트','적응하다']]}
+  ]},
+  {day:81,title:'일과 직장',subtitle:'Work & Workplace',sections:[
+    {label:'💼 업무 · Tasks',words:[['career','커리어','경력'],['position','포지션','직위'],['apply','어플라이','지원하다'],['interview','인터뷰','면접'],['hire','하이어','고용하다'],['employ','임플로이','고용하다'],['promote','프로모트','승진시키다'],['retire','리타이어','은퇴하다'],['resign','리자인','사임하다'],['colleague','칼리그','동료']]},
+    {label:'📋 조직 · Organization',words:[['department','디파트먼트','부서'],['manager','매니저','관리자'],['staff','스태프','직원'],['schedule','스케줄','일정을 잡다'],['assign','어사인','배정하다'],['cooperate','코오퍼레이트','협력하다'],['coordinate','코오디네이트','조율하다'],['supervise','수퍼바이즈','감독하다'],['evaluate','이밸류에이트','평가하다'],['achieve','어치브','달성하다']]}
+  ]},
+  {day:82,title:'관계와 태도',subtitle:'Relationships & Attitudes',sections:[
+    {label:'🤝 관계 · Relationships',words:[['relationship','릴레이션십','관계'],['friendship','프렌드십','우정'],['companion','컴패니언','동반자'],['acquaintance','어퀘인턴스','지인'],['rival','라이벌','경쟁자'],['ally','앨라이','동맹'],['bond','본드','유대'],['loyalty','로열티','충성'],['betray','비트레이','배신하다'],['reconcile','레컨사일','화해하다']]},
+    {label:'🙂 태도 · Attitudes',words:[['attitude','애티튜드','태도'],['behavior','비헤이비어','행동'],['manner','매너','태도/예절'],['sincere','신시어','진실한'],['thoughtful','쏘트풀','사려 깊은'],['considerate','컨시더릿','배려하는'],['indifferent','인디퍼런트','무관심한'],['cooperative','코오퍼러티브','협조적인'],['aggressive','어그레시브','공격적인'],['passive','패시브','수동적인']]}
+  ]},
+  {day:83,title:'추상 개념 1',subtitle:'Abstract Concepts 1',sections:[
+    {label:'💡 개념 · Concepts',words:[['idea','아이디어','생각'],['concept','컨셉트','개념'],['purpose','퍼퍼스','목적'],['meaning','미닝','의미'],['sense','센스','감각/의미'],['aspect','애스펙트','측면'],['feature','피처','특징'],['quality','콸리티','질/특성'],['nature','네이처','본질'],['essence','에센스','본질']]},
+    {label:'🔑 성질 · Properties',words:[['ability','어빌리티','능력'],['capacity','커패시티','용량/수용력'],['potential','포텐셜','잠재력'],['tendency','텐던시','경향'],['condition','컨디션','조건/상태'],['situation','시추에이션','상황'],['circumstance','서컴스턴스','환경/사정'],['background','백그라운드','배경'],['context','컨텍스트','맥락'],['perspective','퍼스펙티브','관점']]}
+  ]},
+  {day:84,title:'추상 개념 2',subtitle:'Abstract Concepts 2',sections:[
+    {label:'🎯 목표 · Goals',words:[['aim','에임','목표'],['target','타깃','목표물'],['ambition','앰비션','야망'],['motivation','모티베이션','동기'],['determination','디터미네이션','결심'],['commitment','커미트먼트','헌신'],['dedication','데디케이션','전념'],['persistence','퍼시스턴스','끈기'],['patience','페이션스','인내'],['discipline','디서플린','훈련/규율']]},
+    {label:'📐 기준 · Standards',words:[['standard','스탠더드','기준'],['criterion','크라이티리언','판단 기준'],['principle','프린시플','원칙'],['rule','룰','규칙'],['norm','놈','규범'],['limit','리밋','한계'],['range','레인지','범위'],['scale','스케일','규모'],['level','레벨','수준'],['measure','메저','척도']]}
+  ]},
+  {day:85,title:'변화와 발전',subtitle:'Change & Development',sections:[
+    {label:'🔄 변화 · Change',words:[['change','체인지','변화'],['transform','트랜스폼','변형시키다'],['convert','컨버트','전환하다'],['shift','시프트','이동하다'],['vary','베리','다양하다'],['adjust','어저스트','조정하다'],['modify','모디파이','수정하다'],['reform','리폼','개혁하다'],['replace','리플레이스','대체하다'],['remain','리메인','남아 있다']]},
+    {label:'📈 발전 · Progress',words:[['develop','디벨럽','발전하다'],['progress','프로그레스','진보'],['advance','어드밴스','발전하다'],['expand','익스팬드','확장하다'],['increase','인크리스','증가하다'],['decrease','디크리스','감소하다'],['decline','디클라인','쇠퇴하다'],['grow','그로우','성장하다'],['improve','임프루브','향상되다'],['evolve','이볼브','진화하다']]}
+  ]},
+  {day:86,title:'의견과 주장',subtitle:'Opinion & Argument',sections:[
+    {label:'🗣️ 의견 · Opinion',words:[['opinion','어피니언','의견'],['view','뷰','견해'],['belief','빌리프','믿음'],['claim','클레임','주장하다'],['argue','아규','주장하다'],['state','스테이트','진술하다'],['emphasize','엠퍼사이즈','강조하다'],['point out','포인트 아웃','지적하다'],['assume','어슘','가정하다'],['conclude','컨클루드','결론짓다']]},
+    {label:'📣 설득 · Persuasion',words:[['persuade','퍼스웨이드','설득하다'],['convince','컨빈스','확신시키다'],['encourage','인커리지','격려하다'],['discourage','디스커리지','낙담시키다'],['recommend','레커멘드','추천하다'],['warn','원','경고하다'],['remind','리마인드','상기시키다'],['request','리퀘스트','요청하다'],['demand','디맨드','요구하다'],['urge','어지','촉구하다']]}
+  ]},
+  {day:87,title:'사건과 상황',subtitle:'Events & Situations',sections:[
+    {label:'📅 사건 · Events',words:[['event','이벤트','사건'],['incident','인시던트','사건'],['occasion','어케이전','경우'],['occur','어커','발생하다'],['happen','해픈','일어나다'],['take place','테이크 플레이스','열리다'],['arise','어라이즈','생기다'],['emerge','이머지','나타나다'],['appear','어피어','나타나다'],['disappear','디서피어','사라지다']]},
+    {label:'🌀 상황 · Situations',words:[['crisis','크라이시스','위기'],['emergency','이머전시','비상사태'],['disaster','디재스터','재난'],['opportunity','아퍼튜니티','기회'],['advantage','어드밴티지','이점'],['disadvantage','디스어드밴티지','불리한 점'],['benefit','베니핏','이익'],['impact','임팩트','영향'],['consequence','컨시퀀스','결과'],['outcome','아웃컴','결과']]}
+  ]},
+  {day:88,title:'정보와 매체',subtitle:'Information & Media',sections:[
+    {label:'📰 매체 · Media',words:[['media','미디어','매체'],['news','뉴스','뉴스'],['report','리포트','보도하다'],['broadcast','브로드캐스트','방송하다'],['journalist','저널리스트','기자'],['article','아티클','기사'],['headline','헤드라인','표제'],['interview','인터뷰','인터뷰하다'],['publish','퍼블리시','발행하다'],['audience','오디언스','청중']]},
+    {label:'🔎 정보 · Information',words:[['information','인포메이션','정보'],['source','소스','출처'],['fact','팩트','사실'],['detail','디테일','세부사항'],['content','콘텐트','내용'],['topic','토픽','주제'],['message','메시지','메시지'],['accurate','애큐릿','정확한'],['reliable','릴라이어블','믿을 만한'],['false','폴스','거짓의']]}
+  ]},
+  {day:89,title:'공간과 위치',subtitle:'Space & Location',sections:[
+    {label:'📍 위치 · Location',words:[['location','로케이션','위치'],['position','포지션','자리'],['area','에어리어','구역'],['zone','존','지대'],['border','보더','경계'],['edge','에지','가장자리'],['center','센터','중심'],['surface','서피스','표면'],['interior','인티어리어','내부'],['exterior','익스티어리어','외부']]},
+    {label:'📏 거리 · Distance',words:[['distance','디스턴스','거리'],['nearby','니어바이','근처의'],['distant','디스턴트','먼'],['beyond','비욘드','~너머'],['within','위딘','~이내에'],['throughout','쓰루아웃','~전역에'],['toward','투워드','~쪽으로'],['across','어크로스','~을 가로질러'],['along','얼롱','~을 따라'],['beneath','비니스','~아래에']]}
+  ]},
+  {day:90,title:'일상 표현 심화',subtitle:'Everyday Expressions',sections:[
+    {label:'🗓️ 습관 · Routine',words:[['routine','루틴','일과'],['regularly','레귤러리','규칙적으로'],['occasionally','어케이저널리','가끔'],['frequently','프리퀀틀리','자주'],['constantly','칸스턴틀리','끊임없이'],['seldom','셀덤','좀처럼 ~않다'],['hardly','하들리','거의 ~않다'],['normally','노멀리','보통'],['generally','제너럴리','일반적으로'],['particularly','파티큘러리','특히']]},
+    {label:'💬 연결어 · Connectors',words:[['moreover','모어오버','게다가'],['furthermore','퍼더모어','더욱이'],['besides','비사이즈','게다가'],['nevertheless','네버덜리스','그럼에도'],['meanwhile','민와일','그동안에'],['accordingly','어코딩리','그에 따라'],['similarly','시밀러리','마찬가지로'],['specifically','스페시피컬리','구체적으로'],['overall','오버올','전반적으로'],['finally','파이널리','마침내']]}
+  ]},
+  {day:91,title:'성취와 실패',subtitle:'Success & Failure',sections:[
+    {label:'🏆 성취 · Achievement',words:[['achievement','어치브먼트','성취'],['accomplish','어캄플리시','완수하다'],['succeed','석시드','성공하다'],['win','윈','이기다'],['earn','언','얻다'],['gain','게인','획득하다'],['reward','리워드','보상'],['honor','아너','명예'],['praise','프레이즈','칭찬하다'],['celebrate','셀러브레이트','축하하다']]},
+    {label:'💔 실패 · Failure',words:[['failure','페일리어','실패'],['lose','루즈','지다/잃다'],['miss','미스','놓치다'],['struggle','스트러글','고군분투하다'],['suffer','서퍼','고통받다'],['give up','기브 업','포기하다'],['quit','큇','그만두다'],['defeat','디피트','패배시키다'],['weakness','위크니스','약점'],['limit','리밋','한계']]}
+  ]},
+  {day:92,title:'감각과 인식',subtitle:'Senses & Perception',sections:[
+    {label:'👁️ 감각 · Senses',words:[['perceive','퍼시브','인지하다'],['sense','센스','감지하다'],['detect','디텍트','탐지하다'],['recognize','레커그나이즈','알아보다'],['identify','아이덴티파이','식별하다'],['distinguish','디스팅귀시','구별하다'],['aware','어웨어','알고 있는'],['conscious','컨셔스','의식하는'],['obvious','아비어스','명백한'],['vague','베이그','모호한']]},
+    {label:'🎨 묘사 · Description',words:[['visible','비저블','보이는'],['invisible','인비저블','보이지 않는'],['transparent','트랜스패런트','투명한'],['bright','브라이트','밝은'],['dim','딤','희미한'],['silent','사일런트','조용한'],['noisy','노이지','시끄러운'],['scent','센트','향기'],['texture','텍스처','질감'],['flavor','플레이버','풍미']]}
+  ]},
+  {day:93,title:'양과 측정',subtitle:'Quantity & Measurement',sections:[
+    {label:'📐 측정 · Measurement',words:[['length','렝스','길이'],['width','위드스','너비'],['height','하이트','높이'],['depth','뎁스','깊이'],['weight','웨이트','무게'],['volume','볼륨','부피'],['speed','스피드','속도'],['temperature','템퍼러처','온도'],['pressure','프레셔','압력'],['density','덴시티','밀도']]},
+    {label:'🔢 수치 · Figures',words:[['figure','피겨','수치'],['rate','레이트','비율'],['ratio','레이시오','비'],['percent','퍼센트','퍼센트'],['portion','포션','부분'],['majority','머조리티','다수'],['minority','마이노리티','소수'],['maximum','맥시멈','최대'],['minimum','미니멈','최소'],['approximate','어프락시밋','대략의']]}
+  ]},
+  {day:94,title:'법과 규칙',subtitle:'Law & Rules',sections:[
+    {label:'⚖️ 법 · Law',words:[['law','로','법'],['legal','리걸','합법의'],['illegal','일리걸','불법의'],['court','코트','법정'],['judge','저지','판사'],['lawyer','로이어','변호사'],['crime','크라임','범죄'],['evidence','에비던스','증거'],['trial','트라이얼','재판'],['sentence','센텐스','선고']]},
+    {label:'📜 규칙 · Regulations',words:[['regulation','레귤레이션','규정'],['obey','오베이','따르다'],['violate','바이얼레이트','위반하다'],['enforce','인포스','시행하다'],['require','리콰이어','요구하다'],['prohibit','프로히빗','금지하다'],['permit','퍼밋','허용하다'],['restrict','리스트릭트','제한하다'],['obligation','아블리게이션','의무'],['exception','익셉션','예외']]}
+  ]},
+  {day:95,title:'심리와 마음',subtitle:'Mind & Psychology',sections:[
+    {label:'🧠 마음 · Mind',words:[['mind','마인드','마음'],['thought','쏘트','생각'],['memory','메모리','기억'],['emotion','이모션','감정'],['mood','무드','기분'],['instinct','인스팅트','본능'],['intuition','인튜이션','직관'],['desire','디자이어','욕구'],['impulse','임펄스','충동'],['will','윌','의지']]},
+    {label:'🌱 성장 · Growth',words:[['mature','머추어','성숙한'],['independent','인디펜던트','독립적인'],['responsible','리스판서블','책임감 있는'],['reflect','리플렉트','반성하다'],['accept','액셉트','받아들이다'],['adapt','어댑트','적응하다'],['endure','인듀어','견디다'],['overcome','오버컴','극복하다'],['inspire','인스파이어','영감을 주다'],['motivate','모티베이트','동기를 주다']]}
+  ]},
+  {day:96,title:'건축과 도시',subtitle:'Architecture & City',sections:[
+    {label:'🏗️ 건축 · Architecture',words:[['structure','스트럭처','구조물'],['construct','컨스트럭트','건설하다'],['architecture','아키텍처','건축'],['material','머티어리얼','재료'],['foundation','파운데이션','기초'],['column','칼럼','기둥'],['ceiling','실링','천장'],['frame','프레임','틀'],['design','디자인','설계'],['renovate','레노베이트','개조하다']]},
+    {label:'🏙️ 도시 · City',words:[['urban','어반','도시의'],['rural','루럴','시골의'],['downtown','다운타운','도심'],['suburb','서버브','교외'],['district','디스트릭트','구역'],['facility','퍼실리티','시설'],['public','퍼블릭','공공의'],['private','프라이빗','사적인'],['transport','트랜스포트','수송하다'],['population','파퓰레이션','인구']]}
+  ]},
+  {day:97,title:'농업과 식량',subtitle:'Agriculture & Food',sections:[
+    {label:'🌾 농업 · Agriculture',words:[['agriculture','애그리컬처','농업'],['crop','크랍','작물'],['harvest','하비스트','수확하다'],['plant','플랜트','심다'],['seed','시드','씨앗'],['soil','소일','토양'],['fertilizer','퍼틸라이저','비료'],['irrigation','이리게이션','관개'],['livestock','라이브스톡','가축'],['farm','팜','농장']]},
+    {label:'🍚 식량 · Food Supply',words:[['nutrition','뉴트리션','영양'],['protein','프로틴','단백질'],['vitamin','바이타민','비타민'],['ingredient','인그리디언트','재료'],['organic','오가닉','유기농의'],['fresh','프레시','신선한'],['preserve','프리저브','보존하다'],['process','프로세스','가공하다'],['consume','컨슘','소비하다'],['shortage','쇼티지','부족']]}
+  ]},
+  {day:98,title:'스포츠와 경쟁',subtitle:'Sports & Competition',sections:[
+    {label:'🏅 경쟁 · Competition',words:[['compete','컴피트','경쟁하다'],['competition','컴피티션','경쟁'],['opponent','어포넌트','상대'],['tournament','토너먼트','토너먼트'],['league','리그','리그'],['qualify','콸리파이','자격을 얻다'],['eliminate','일리미네이트','탈락시키다'],['advance','어드밴스','진출하다'],['title','타이틀','타이틀'],['trophy','트로피','트로피']]},
+    {label:'💪 훈련 · Training',words:[['athlete','애슬릿','운동선수'],['performance','퍼포먼스','경기력'],['technique','테크닉','기술'],['endurance','인듀어런스','지구력'],['flexible','플렉서블','유연한'],['strength','스트렝스','근력'],['injury','인저리','부상'],['recovery','리커버리','회복'],['teamwork','팀워크','팀워크'],['spirit','스피릿','정신']]}
+  ]},
+  {day:99,title:'미래와 가능성',subtitle:'Future & Possibility',sections:[
+    {label:'🔮 예측 · Prediction',words:[['predict','프리딕트','예측하다'],['forecast','포캐스트','예보하다'],['anticipate','앤티시페이트','예상하다'],['probable','프라버블','있음 직한'],['likely','라이클리','~할 것 같은'],['unlikely','언라이클리','~할 것 같지 않은'],['certain','서튼','확실한'],['uncertain','언서튼','불확실한'],['possibility','파서빌리티','가능성'],['probability','프라버빌리티','확률']]},
+    {label:'🚀 계획 · Planning',words:[['plan','플랜','계획하다'],['prepare','프리페어','준비하다'],['arrange','어레인지','준비하다'],['organize','오거나이즈','조직하다'],['schedule','스케줄','예정하다'],['postpone','포스트폰','연기하다'],['cancel','캔슬','취소하다'],['confirm','컨펌','확정하다'],['proceed','프로시드','진행하다'],['implement','임플리먼트','실행하다']]}
+  ]},
+  {day:100,title:'삶과 가치',subtitle:'Life & Values',sections:[
+    {label:'🌟 가치 · Values',words:[['value','밸류','가치'],['virtue','버추','미덕'],['integrity','인테그리티','성실성'],['honesty','아니스티','정직'],['kindness','카인드니스','친절'],['generosity','제너로시티','너그러움'],['courage','커리지','용기'],['wisdom','위즈덤','지혜'],['humility','휴밀리티','겸손'],['gratitude','그래티튜드','감사']]},
+    {label:'🕊️ 삶 · Life',words:[['meaningful','미닝풀','의미 있는'],['purposeful','퍼퍼스풀','목적이 있는'],['fulfill','풀필','성취하다'],['contribute','컨트리뷰트','기여하다'],['influence','인플루언스','영향을 주다'],['legacy','레거시','유산'],['journey','저니','여정'],['destiny','데스티니','운명'],['blessing','블레싱','축복'],['hope','호프','희망']]}
+  ]},
 ];
 
 const DICT = {};

@@ -1,5 +1,5 @@
 // HTML/JS는 항상 네트워크에서 최신으로 (캐시는 오프라인 대비용)
-const CACHE = 'vocab-v5';
+const CACHE = 'vocab-v6';
 
 self.addEventListener('install', () => self.skipWaiting());
 
