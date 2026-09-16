@@ -206,6 +206,46 @@ const DAYS = [
     {label:'🌟 꿈 · Dreams',words:[['dream','드림','꿈'],['goal','골','목표'],['future','퓨처','미래'],['wish','위시','바라다'],['want','원트','원하다'],['need','니드','필요하다'],['try','트라이','노력하다'],['succeed','석시드','성공하다'],['fail','페일','실패하다'],['keep','킵','계속하다']]},
     {label:'🚀 성장 · Growing',words:[['grow up','그로우업','자라다'],['change','체인지','변하다'],['improve','임프루브','나아지다'],['effort','에포트','노력'],['challenge','챌린지','도전'],['chance','챈스','기회'],['ready','레디','준비된'],['strong','스트롱','강한'],['proud','프라우드','자랑스러운'],['happy','해피','행복한']]}
   ]},
+  {day:51,title:'요리 & 맛',subtitle:'Cooking & Taste',sections:[
+    {label:'🍳 조리 · Cooking',words:[['recipe','레시피','조리법'],['mix','믹스','섞다'],['stir','스터','젓다'],['pour','포어','붓다'],['peel','필','껍질을 벗기다'],['slice','슬라이스','얇게 썰다'],['chop','찹','잘게 썰다'],['grill','그릴','굽다'],['steam','스팀','찌다'],['serve','서브','차려내다']]},
+    {label:'😋 맛 · Taste',words:[['delicious','딜리셔스','맛있는'],['bitter','비터','쓴'],['soft','소프트','부드러운'],['crispy','크리스피','바삭한'],['juicy','주시','즙이 많은'],['hungry','헝그리','배고픈'],['thirsty','써스티','목마른'],['full','풀','배부른'],['favorite','페이버릿','가장 좋아하는'],['smell','스멜','냄새']]}
+  ]},
+  {day:52,title:'운동 & 경기',subtitle:'Sports & Games',sections:[
+    {label:'🏟️ 경기 · Games',words:[['game','게임','경기'],['match','매치','시합'],['player','플레이어','선수'],['coach','코치','감독'],['referee','레퍼리','심판'],['score','스코어','점수'],['goal','골','골/득점'],['point','포인트','점'],['round','라운드','라운드'],['medal','메달','메달']]},
+    {label:'🏃 운동 · Exercise',words:[['practice','프랙티스','연습'],['train','트레인','훈련하다'],['warm up','웜업','준비운동하다'],['stretch','스트레치','스트레칭하다'],['race','레이스','경주'],['win','윈','이기다'],['beat','빗','이기다/물리치다'],['tie','타이','비기다'],['champion','챔피언','챔피언'],['record','레코드','기록']]}
+  ]},
+  {day:53,title:'감정 표현 심화',subtitle:'More Feelings',sections:[
+    {label:'💖 마음 · Heart',words:[['like','라이크','좋아하다'],['enjoy','인조이','즐기다'],['miss','미스','그리워하다'],['worry','워리','걱정하다'],['fear','피어','두려워하다'],['hurt','허트','아프게 하다'],['comfort','컴포트','위로하다'],['cheer','치어','응원하다'],['smile','스마일','미소 짓다'],['hug','허그','안다']]},
+    {label:'🌈 상태 · States',words:[['glad','글래드','반가운'],['upset','업셋','속상한'],['jealous','젤러스','부러운'],['thankful','땡크풀','고마운'],['sleepy','슬리피','졸린'],['sorry','쏘리','미안한'],['excited','익사이티드','설레는'],['relaxed','릴랙스드','편안한'],['amazed','어메이즈드','놀라운'],['hopeful','호프풀','희망찬']]}
+  ]},
+  {day:54,title:'집 & 생활 심화',subtitle:'Home Life',sections:[
+    {label:'🏡 집 안 · Around the House',words:[['living','리빙','생활'],['space','스페이스','공간'],['yard','야드','마당'],['garage','거라지','차고'],['balcony','발코니','베란다'],['attic','애틱','다락'],['basement','베이스먼트','지하실'],['hallway','홀웨이','복도'],['entrance','엔트런스','현관'],['neighborhood','네이버후드','동네']]},
+    {label:'🧺 살림 · Housework',words:[['sweep','스윕','쓸다'],['mop','맙','닦다'],['laundry','론드리','빨래'],['iron','아이언','다리다'],['fold','폴드','개다'],['hang','행','걸다'],['water','워터','물을 주다'],['feed','피드','먹이를 주다'],['repair','리페어','수리하다'],['organize','오거나이즈','정리하다']]}
+  ]},
+  {day:55,title:'학교 생활 심화',subtitle:'School Life',sections:[
+    {label:'🏫 학교 · At School',words:[['principal','프린시펄','교장 선생님'],['library','라이브러리','도서관'],['cafeteria','캐피테리아','급식실'],['playground','플레이그라운드','운동장'],['hallway','홀웨이','복도'],['schedule','스케줄','시간표'],['recess','리세스','쉬는 시간'],['assembly','어셈블리','조회'],['uniform','유니폼','교복'],['attendance','어텐던스','출석']]},
+    {label:'📝 공부 · Studying',words:[['review','리뷰','복습하다'],['prepare','프리페어','준비하다'],['memorize','메모라이즈','외우다'],['solve','솔브','풀다'],['correct','커렉트','고치다/올바른'],['mistake','미스테이크','실수'],['effort','에포트','노력'],['focus','포커스','집중하다'],['progress','프로그레스','발전'],['result','리절트','결과']]}
+  ]},
+  {day:56,title:'자연 심화',subtitle:'More Nature',sections:[
+    {label:'🏞️ 풍경 · Landscape',words:[['field','필드','들판'],['hill','힐','언덕'],['valley','밸리','계곡'],['cliff','클리프','절벽'],['shore','쇼어','해변'],['sand','샌드','모래'],['wave','웨이브','파도'],['stream','스트림','시냇물'],['pond','폰드','연못'],['path','패스','오솔길']]},
+    {label:'🌤️ 하늘 · Sky',words:[['sunrise','선라이즈','일출'],['sunset','선셋','일몰'],['shadow','섀도우','그림자'],['shine','샤인','빛나다'],['glow','글로우','빛을 내다'],['dark','다크','어두운'],['bright','브라이트','밝은'],['clear','클리어','맑은'],['breeze','브리즈','산들바람'],['air','에어','공기']]}
+  ]},
+  {day:57,title:'일과 직업 심화',subtitle:'Work & Career',sections:[
+    {label:'💼 일 · Work',words:[['job','잡','일자리'],['work','워크','일하다'],['office','오피스','사무실'],['company','컴퍼니','회사'],['meeting','미팅','회의'],['project','프로젝트','프로젝트'],['task','태스크','업무'],['schedule','스케줄','일정'],['deadline','데드라인','마감일'],['salary','샐러리','급여']]},
+    {label:'🌟 능력 · Skills',words:[['skill','스킬','기술'],['talent','탤런트','재능'],['experience','익스피리언스','경험'],['train','트레인','훈련하다'],['lead','리드','이끌다'],['manage','매니지','관리하다'],['create','크리에이트','만들어내다'],['design','디자인','설계하다'],['solve','솔브','해결하다'],['succeed','석시드','성공하다']]}
+  ]},
+  {day:58,title:'몸과 건강 심화',subtitle:'Body & Health',sections:[
+    {label:'🫀 몸 · Body',words:[['heart','하트','심장'],['brain','브레인','뇌'],['bone','본','뼈'],['muscle','머슬','근육'],['skin','스킨','피부'],['blood','블러드','피'],['breath','브레스','숨'],['voice','보이스','목소리'],['nail','네일','손톱'],['throat','쓰로트','목구멍']]},
+    {label:'🏥 치료 · Care',words:[['doctor','닥터','의사'],['checkup','체크업','건강검진'],['treat','트릿','치료하다'],['heal','힐','낫다'],['recover','리커버','회복하다'],['pill','필','알약'],['injection','인젝션','주사'],['bandage','밴디지','반창고'],['clinic','클리닉','진료소'],['healthy','헬시','건강한']]}
+  ]},
+  {day:59,title:'여가 & 놀이',subtitle:'Leisure & Play',sections:[
+    {label:'🎡 나들이 · Outings',words:[['picnic','피크닉','소풍'],['vacation','베케이션','휴가'],['holiday','홀리데이','휴일'],['weekend','위켄드','주말'],['beach','비치','해변'],['mountain','마운틴','산'],['amusement park','어뮤즈먼트 파크','놀이공원'],['aquarium','아쿠아리움','수족관'],['ticket','티켓','입장권'],['visit','비짓','방문하다']]},
+    {label:'🎲 놀이 · Play',words:[['toy','토이','장난감'],['doll','돌','인형'],['puzzle','퍼즐','퍼즐'],['block','블록','블록'],['ball','볼','공'],['kite','카이트','연'],['card','카드','카드'],['board game','보드 게임','보드게임'],['hide','하이드','숨다'],['seek','식','찾다']]}
+  ]},
+  {day:60,title:'세계 & 사회',subtitle:'World & Society',sections:[
+    {label:'🌐 사회 · Society',words:[['people','피플','사람들'],['society','소사이어티','사회'],['community','커뮤니티','공동체'],['village','빌리지','마을'],['town','타운','읍/도시'],['capital','캐피털','수도'],['nation','네이션','국가'],['government','거번먼트','정부'],['law','로','법'],['history','히스토리','역사']]},
+    {label:'🤝 함께 · Together',words:[['help','헬프','돕다'],['volunteer','발런티어','자원봉사'],['donate','도네이트','기부하다'],['support','서포트','지원하다'],['peace','피스','평화'],['equal','이퀄','평등한'],['freedom','프리덤','자유'],['duty','듀티','의무'],['citizen','시티즌','시민'],['culture','컬처','문화']]}
+  ]},
 ];
 
 const DICT = {};
