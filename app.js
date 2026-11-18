@@ -99,7 +99,7 @@ let dataMap={1:null,2:null};
 
 // ── 메인 탭 ───────────────────────────────────────────
 function switchMain(tab) {
-  const tabs = ['word','note','math'];
+  const tabs = ['word','grammar','note','math'];
   document.querySelectorAll('.main-tab').forEach((t,i)=>t.classList.toggle('on', tabs[i]===tab));
   tabs.forEach(name=>{
     const el = document.getElementById('page-'+name);
@@ -108,6 +108,10 @@ function switchMain(tab) {
   if (tab==='math' && !window._mathInit) {
     window._mathInit = true;
     renderMathHome();
+  }
+  if (tab==='grammar' && !window._grammarInit) {
+    window._grammarInit = true;
+    renderGrammarHome();
   }
 }
 
@@ -161,11 +165,37 @@ function renderWordContent() {
     return;
   }
 
-  // 하준
-  titleEl.textContent=`하준 · Day ${dayNum}`;
-  subEl.textContent=`${formatDate()} · 오늘 20개`;
-  const dayData=DAYS.find(d=>d.day===dayNum);
-  if (!dayData) { contentEl.innerHTML=`<div class="no-day">Day ${dayNum} 단어가 아직 준비 중이에요 📝<br>곧 추가될 예정이에요!</div>`; return; }
+  // 하준 — HAJUN_SWITCH_DAY부터 하루 10개(①/②)
+  let hjDay, hjPart;
+  if (dayNum < HAJUN_SWITCH_DAY) {
+    hjDay = dayNum; hjPart = 0;              // 과거: 하루 20개
+  } else {
+    const k = dayNum - HAJUN_SWITCH_DAY + 1;  // 전환 후 경과 학습일
+    hjDay = HAJUN_SWITCH_DAY + Math.floor((k-1)/2);
+    hjPart = (k % 2 === 1) ? 1 : 2;
+  }
+  const dayData=DAYS.find(d=>d.day===hjDay);
+  titleEl.textContent=`하준 · Day ${hjDay}${hjPart?(hjPart===1?' ①':' ②'):''}`;
+  subEl.textContent=`${formatDate()} · 오늘 ${hjPart?10:20}개`;
+  if (!dayData) { contentEl.innerHTML=`<div class="no-day">Day ${hjDay} 단어가 아직 준비 중이에요 📝<br>곧 추가될 예정이에요!</div>`; return; }
+
+  const row=(w,n)=>`<div class="word-row"><span class="word-num">${n}</span><span class="word-en" style="color:${color}" onclick="openDict('${w[0]}',event)">${w[0]}</span><span class="word-pron">${w[1]}</span><span class="word-kr">${w[2]}</span><button class="spk" onclick="speak('${w[0]}',event)">🔊</button></div>`;
+
+  if (hjPart) {
+    const allw=dayData.sections.flatMap(s=>s.words);
+    const chunk=hjPart===1?allw.slice(0,10):allw.slice(10,20);
+    const label=(hjPart===1?dayData.sections[0]:dayData.sections[1]||dayData.sections[0]).label;
+    contentEl.innerHTML=`<div class="word-card">
+      <div class="word-card-header">
+        <span class="word-card-title">${dayData.title} · ${dayData.subtitle}</span>
+        <span class="word-badge" style="background:${color}">10 words</span>
+      </div>
+      <div class="word-section-label">${label}</div>
+      ${chunk.map((w,i)=>row(w,i+1)).join('')}
+    </div>`;
+    return;
+  }
+
   contentEl.innerHTML=dayData.sections.map((sec,si)=>`
     <div class="word-card">
       <div class="word-card-header">
@@ -173,7 +203,7 @@ function renderWordContent() {
         ${si===0?`<span class="word-badge" style="background:${color}">20 words</span>`:''}
       </div>
       <div class="word-section-label">${sec.label}</div>
-      ${sec.words.map((w,i)=>`<div class="word-row"><span class="word-num">${si*10+i+1}</span><span class="word-en" style="color:${color}" onclick="openDict('${w[0]}',event)">${w[0]}</span><span class="word-pron">${w[1]}</span><span class="word-kr">${w[2]}</span><button class="spk" onclick="speak('${w[0]}',event)">🔊</button></div>`).join('')}
+      ${sec.words.map((w,i)=>row(w,si*10+i+1)).join('')}
     </div>`).join('');
 }
 

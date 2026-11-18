@@ -73,6 +73,63 @@ input{background:#f7f2ea;border:1px solid rgba(0,0,0,0.08);border-radius:8px;col
 .note-header{text-align:center;padding:12px 0 16px}
 .note-header h2{font-size:18px;font-weight:900}
 .note-header p{font-size:12px;color:#a0927c;margin-top:3px}
+/* 문법 */
+.g-header{text-align:center;padding:12px 0 16px}
+.g-header h2{font-size:18px;font-weight:900}
+.g-header p{font-size:12px;color:#a0927c;margin-top:3px}
+.g-card{background:#fff;border-radius:14px;padding:16px;margin-bottom:14px;border:1px solid rgba(0,0,0,.07)}
+.g-card.center{text-align:center}
+.g-concept{font-size:14px;line-height:1.85;color:#3a3028}
+.g-points{list-style:none;padding:0}
+.g-points li{font-size:13.5px;line-height:1.7;padding:9px 0 9px 16px;border-bottom:1px solid rgba(0,0,0,.05);position:relative}
+.g-points li:last-child{border-bottom:none}
+.g-points li::before{content:'·';position:absolute;left:4px;color:#c47a2a;font-weight:900}
+.g-points b{color:#a8651f;font-weight:700}
+.g-q{font-size:16px;line-height:1.8;font-weight:600;padding:6px 0 18px;color:#2c2418}
+.g-q b{color:#a8651f}
+.g-q u{text-underline-offset:3px}
+.g-options{display:flex;flex-direction:column;gap:8px}
+.g-opt{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:#f7f2ea;border:1.5px solid rgba(0,0,0,.08);border-radius:10px;padding:12px;font-family:inherit;font-size:14px;color:#2c2418;cursor:pointer;transition:all .15s}
+.g-opt:active{opacity:.85}
+.g-opt:disabled{cursor:default}
+.g-opt.correct{background:#e8f5e9;border-color:#66bb6a}
+.g-opt.wrong{background:#ffebee;border-color:#ef9a9a}
+.go-num{flex-shrink:0;width:21px;height:21px;border-radius:50%;background:rgba(0,0,0,.09);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.go-text{flex:1;line-height:1.5}
+.g-input{background:#f7f2ea;border:2px solid rgba(0,0,0,.1);border-radius:10px;font-size:17px;text-align:center;padding:12px;width:100%;font-weight:600;margin-bottom:10px;font-family:inherit}
+.g-input:focus{border-color:#c47a2a;outline:none}
+.g-input.correct{border-color:#66bb6a;background:#f1f8f2}
+.g-input.wrong{border-color:#ef9a9a;background:#fdf2f2}
+.g-fb{text-align:center;font-size:14px;font-weight:700;min-height:20px;margin-top:12px}
+.g-fb.ok{color:#4caf6e}.g-fb.no{color:#d94f4f}
+.g-explain{font-size:13px;line-height:1.75;color:#6b5d4d;background:#faf7f2;border-radius:10px;padding:0;margin-top:0;max-height:0;overflow:hidden;transition:all .2s}
+.g-explain:not(:empty){padding:12px 14px;margin-top:10px;max-height:400px}
+.g-btn{width:100%;padding:13px;border-radius:10px;border:none;background:#c47a2a;color:#fff;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:8px}
+.g-btn.ghost{background:transparent;color:#8a7a68;border:1px solid rgba(0,0,0,.12)}
+.g-btn:active{opacity:.85}
+.g-progress{background:rgba(0,0,0,.07);border-radius:20px;height:6px;overflow:hidden;margin-bottom:14px}
+.g-bar{height:100%;background:#c47a2a;border-radius:20px;transition:width .3s}
+.g-result{background:#fff;border-radius:14px;padding:28px 16px;text-align:center;margin-bottom:14px;border:1px solid rgba(0,0,0,.07)}
+.g-score{font-size:46px;font-weight:900;color:#c47a2a;line-height:1}
+.g-score span{font-size:22px;color:#a0927c}
+.g-rate{font-size:14px;color:#8a7a68;margin-top:6px}
+.g-unit-badge{display:inline-block;background:#c47a2a;color:#fff;font-size:12px;font-weight:800;padding:5px 14px;border-radius:20px;margin-bottom:10px}
+.g-unit-title{font-size:19px;font-weight:800;margin-bottom:3px}
+.g-unit-sub{font-size:12px;color:#a0927c;margin-bottom:18px}
+.g-unit-row{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;font-size:13.5px;cursor:pointer}
+.g-unit-row.on{background:#fdf3e7;font-weight:700}
+.g-unit-row:active{background:#f4efe8}
+.gur-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:rgba(196,122,42,.14);color:#a8651f;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.g-wrong{background:#f7f2ea;border-radius:8px;padding:12px;margin-bottom:6px}
+.gw-q{font-size:13.5px;line-height:1.6;margin-bottom:6px}
+.gw-a{font-size:12px;color:#8a7a68}
+.gw-a .ok{color:#4caf6e;font-weight:700}
+.gw-a .no{color:#d94f4f;font-weight:700}
+.g-hist{display:flex;align-items:center;gap:8px;padding:9px 4px;border-bottom:1px solid rgba(0,0,0,.05);font-size:12px}
+.g-hist:last-child{border-bottom:none}
+.gh-date{color:#a0927c;width:40px;flex-shrink:0}
+.gh-unit{flex:1;color:#6b5d4d}
+.gh-score{font-weight:700;flex-shrink:0}
 /* 수학 */
 .math-header{text-align:center;padding:12px 0 16px}
 .math-header h2{font-size:18px;font-weight:900}
@@ -124,6 +181,7 @@ input{background:#f7f2ea;border:1px solid rgba(0,0,0,0.08);border-radius:8px;col
 <body>
 <div class="main-tabs">
   <button class="main-tab on" onclick="switchMain('word')">📖 단어</button>
+  <button class="main-tab" onclick="switchMain('grammar')">✏️ 문법</button>
   <button class="main-tab" onclick="switchMain('note')">📝 오답</button>
   <button class="main-tab" onclick="switchMain('math')">🔢 수학</button>
 </div>
@@ -148,6 +206,7 @@ input{background:#f7f2ea;border:1px solid rgba(0,0,0,0.08);border-radius:8px;col
   <div id="note-sec1" class="note-section active"></div>
   <div id="note-sec2" class="note-section"></div>
 </div>
+<div id="page-grammar" class="page"></div>
 <div id="page-math" class="page"></div>
 <script>
 if ('serviceWorker' in navigator) {
@@ -157,6 +216,7 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 <script src="data.js"></script>
+<script src="grammar.js"></script>
 <script src="math.js"></script>
 <script src="app.js"></script>
 </body>
