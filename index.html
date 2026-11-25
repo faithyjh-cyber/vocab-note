@@ -153,6 +153,20 @@ input{background:#f7f2ea;border:1px solid rgba(0,0,0,0.08);border-radius:8px;col
 .math-card{background:#fff;border-radius:14px;padding:18px 16px;margin-bottom:14px;border:1px solid rgba(0,0,0,.07)}
 .math-card.center{text-align:center}
 .math-q{font-size:30px;font-weight:800;text-align:center;padding:24px 0 20px;line-height:1.4;color:#2c2418}
+/* 분수 입력 칸 */
+.frac-input{display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 0 4px;border-radius:12px;transition:background .2s}
+.frac-input.correct{background:#f1f8f2}
+.frac-input.wrong{background:#fdf2f2}
+.fi-whole{width:72px;height:56px;font-size:24px;font-weight:800;text-align:center;background:#f7f2ea;border:2px solid rgba(0,0,0,.1);border-radius:10px;font-family:inherit;color:#2c2418;-moz-appearance:textfield}
+.fi-frac{display:flex;flex-direction:column;align-items:center;gap:5px}
+.fi-num,.fi-den{width:72px;height:48px;font-size:22px;font-weight:800;text-align:center;background:#f7f2ea;border:2px solid rgba(0,0,0,.1);border-radius:10px;font-family:inherit;color:#2c2418;-moz-appearance:textfield}
+.fi-line{width:78px;height:3px;background:#2c2418;border-radius:2px}
+.frac-input input:focus{border-color:#2a7a9e;outline:none;background:#fff}
+.frac-input input:disabled{opacity:.75}
+.frac-input input::-webkit-outer-spin-button,
+.frac-input input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.frac-input input::placeholder{font-size:12px;font-weight:400;color:#bba898}
+.frac-guide{text-align:center;font-size:11px;color:#a0927c;margin:8px 0 12px}
 .math-input{background:#f7f2ea;border:2px solid rgba(0,0,0,.1);border-radius:10px;font-size:20px;text-align:center;padding:12px;width:100%;font-weight:700;margin-bottom:10px}
 .math-input:focus{border-color:#2a7a9e;outline:none}
 .math-input:disabled{opacity:.7}

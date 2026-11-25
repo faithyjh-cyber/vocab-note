@@ -33,33 +33,28 @@ function toMixed(n,d){
   return {w,n:r,d};
 }
 
-// 답 비교 (기약분수 & 대분수 모두 정답 처리)
-function checkAnswer(input, correctN, correctD) {
-  const s = input.trim().replace(/\s+/g,' ');
-  if (!s) return false;
+// 답 비교 — 정수·분자·분모 세 칸 입력
+// 약분하지 않은 답과 대분수/가분수 모두 정답 처리
+function checkParts(whole, num, den, correctN, correctD) {
+  const w = whole === '' ? 0 : parseInt(whole);
+  const n = num === '' ? 0 : parseInt(num);
+  const d = den === '' ? 0 : parseInt(den);
 
-  // "2 1/3" 대분수 형태
-  let m = s.match(/^(\d+)\s+(\d+)\/(\d+)$/);
-  if (m) {
-    const w=+m[1], n=+m[2], d=+m[3];
-    if (d===0) return false;
-    const total = w*d + n;
-    return total*correctD === correctN*d;
+  if (isNaN(w) || isNaN(n) || isNaN(d)) return false;
+  if (w < 0 || n < 0 || d < 0) return false;
+
+  // 분자만 쓰고 분모를 비운 경우는 오답 처리
+  if (n > 0 && d === 0) return false;
+
+  // 정수만 입력 (분수 칸 비움)
+  if (n === 0 && d === 0) {
+    if (whole === '') return false;
+    return w * correctD === correctN;
   }
-  // "7/3" 분수 형태
-  m = s.match(/^(\d+)\/(\d+)$/);
-  if (m) {
-    const n=+m[1], d=+m[2];
-    if (d===0) return false;
-    return n*correctD === correctN*d;
-  }
-  // "2" 정수 형태
-  m = s.match(/^(\d+)$/);
-  if (m) {
-    const n=+m[1];
-    return n*correctD === correctN;
-  }
-  return false;
+
+  if (d === 0) return false;
+  const total = w * d + n;
+  return total * correctD === correctN * d;
 }
 
 // ── 문제 생성 ─────────────────────────────────────────
@@ -184,19 +179,30 @@ function startMathSession() {
 }
 
 function submitAnswer() {
-  const inp = document.getElementById('math-input');
-  const val = inp.value;
-  if (!val.trim()) return;
+  const wEl = document.getElementById('in-whole');
+  const nEl = document.getElementById('in-num');
+  const dEl = document.getElementById('in-den');
+  const w = wEl.value.trim(), n = nEl.value.trim(), d = dEl.value.trim();
+
+  if (!w && !n && !d) return;   // 전부 비었으면 무시
+
   const p = mathState.problems[mathState.idx];
-  const ok = checkAnswer(val, p.resN, p.resD);
-  mathState.answers.push({ q:p.q, input:val, ok, correct:answerText(p.resN,p.resD) });
+  const ok = checkParts(w, n, d, p.resN, p.resD);
+
+  // 사용자가 쓴 답을 보기 좋게 문자열로
+  let given = '';
+  if (n && d) given = (w ? w + ' ' : '') + n + '/' + d;
+  else given = w || (n || d);
+
+  mathState.answers.push({ q:p.q, input:given, ok, correct:answerText(p.resN,p.resD) });
   if (ok) mathState.correct++;
 
-  // 즉시 피드백
   const fb = document.getElementById('math-feedback');
   fb.textContent = ok ? '정답이에요! ⭕' : `아쉬워요. 정답은 ${answerText(p.resN,p.resD)}`;
   fb.className = 'math-fb ' + (ok?'ok':'no');
-  inp.disabled = true;
+
+  [wEl,nEl,dEl].forEach(el => el.disabled = true);
+  document.getElementById('frac-input').classList.add(ok ? 'correct' : 'wrong');
   document.getElementById('math-submit').style.display='none';
   document.getElementById('math-next').style.display='block';
 }
@@ -244,14 +250,22 @@ function renderMath() {
     <div class="math-progress"><div class="math-bar" style="width:${(mathState.idx)/10*100}%"></div></div>
     <div class="math-card">
       <div class="math-q">${p.q} = ?</div>
-      <input id="math-input" class="math-input" inputmode="text" autocomplete="off" placeholder="예) 3/4 또는 1 2/5" onkeydown="if(event.key==='Enter')submitAnswer()">
+      <div class="frac-input" id="frac-input">
+        <input id="in-whole" class="fi-whole" type="number" inputmode="numeric" placeholder="정수" autocomplete="off">
+        <div class="fi-frac">
+          <input id="in-num" class="fi-num" type="number" inputmode="numeric" placeholder="분자" autocomplete="off">
+          <div class="fi-line"></div>
+          <input id="in-den" class="fi-den" type="number" inputmode="numeric" placeholder="분모" autocomplete="off">
+        </div>
+      </div>
+      <p class="frac-guide">정수가 없으면 정수 칸은 비워 두세요</p>
       <div id="math-feedback" class="math-fb"></div>
       <button id="math-submit" class="math-btn" onclick="submitAnswer()">확인</button>
       <button id="math-next" class="math-btn" style="display:none" onclick="nextProblem()">다음 문제 →</button>
     </div>
-    <p class="math-hint">답은 기약분수로 써주세요<br>대분수는 "1 2/5" 처럼 띄어쓰기</p>
+    <p class="math-hint">약분하지 않아도 정답으로 인정돼요</p>
   `;
-  setTimeout(()=>{ const i=document.getElementById('math-input'); if(i) i.focus(); }, 100);
+  setTimeout(()=>{ const i=document.getElementById('in-num'); if(i) i.focus(); }, 100);
 }
 
 function renderMathResult() {
