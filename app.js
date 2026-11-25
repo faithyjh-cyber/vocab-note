@@ -122,6 +122,47 @@ function switchKidWord(k) {
   renderWordContent();
 }
 
+// ── 오늘의 단어 목록 반환 (퀴즈·채점용) ────────────────
+// { ok, day, part, title, subtitle, label, words[] }
+function getTodayWords(kid) {
+  const dayNum = getTodayDay();
+  if (dayNum === -1) return { ok:false, reason:'rest' };
+
+  if (kid === 2) {
+    const half = Math.ceil(dayNum / 2);
+    const d = DAYS.find(x => x.day === half);
+    if (!d) return { ok:false, reason:'none', day:half };
+    const all = d.sections.flatMap(s => s.words);
+    const part = dayNum % 2 === 1 ? 1 : 2;
+    const words = part === 1 ? all.slice(0,10) : all.slice(10,20);
+    const sec = part === 1 ? d.sections[0] : (d.sections[1] || d.sections[0]);
+    return { ok:true, day:half, part, title:d.title, subtitle:d.subtitle, label:sec.label, words };
+  }
+
+  // 하준
+  let hjDay, hjPart;
+  if (dayNum < HAJUN_SWITCH_DAY) { hjDay = dayNum; hjPart = 0; }
+  else {
+    const k = dayNum - HAJUN_SWITCH_DAY + 1;
+    hjDay = HAJUN_SWITCH_DAY + Math.floor((k-1)/2);
+    hjPart = (k % 2 === 1) ? 1 : 2;
+  }
+  const d = DAYS.find(x => x.day === hjDay);
+  if (!d) return { ok:false, reason:'none', day:hjDay };
+  const all = d.sections.flatMap(s => s.words);
+  if (!hjPart) return { ok:true, day:hjDay, part:0, title:d.title, subtitle:d.subtitle, label:'', words:all };
+  const words = hjPart === 1 ? all.slice(0,10) : all.slice(10,20);
+  const sec = hjPart === 1 ? d.sections[0] : (d.sections[1] || d.sections[0]);
+  return { ok:true, day:hjDay, part:hjPart, title:d.title, subtitle:d.subtitle, label:sec.label, words };
+}
+
+// 요일 포함 날짜 (오답 기록용) — 예: 11/18(수)
+function formatDateFull() {
+  const d = new Date();
+  const dow = ['일','월','화','수','목','금','토'][d.getDay()];
+  return `${d.getMonth()+1}/${d.getDate()}(${dow})`;
+}
+
 function renderWordContent() {
   const dayNum=getTodayDay();
   const titleEl=document.getElementById('word-day-title');
@@ -161,7 +202,8 @@ function renderWordContent() {
       </div>
       <div class="word-section-label">${label}</div>
       ${kidWords.map((w,i)=>`<div class="word-row"><span class="word-num">${i+1}</span><span class="word-en" style="color:${color}" onclick="openDict('${w[0]}',event)">${w[0]}</span><span class="word-pron">${w[1]}</span><span class="word-kr">${w[2]}</span><button class="spk" onclick="speak('${w[0]}',event)">🔊</button></div>`).join('')}
-    </div>`;
+    </div>
+    <button class="ck-start-btn" style="background:${color}" onclick="ckStart(2)">✓ 채점하기</button>`;
     return;
   }
 
@@ -192,7 +234,8 @@ function renderWordContent() {
       </div>
       <div class="word-section-label">${label}</div>
       ${chunk.map((w,i)=>row(w,i+1)).join('')}
-    </div>`;
+    </div>
+    <button class="ck-start-btn" style="background:${color}" onclick="ckStart(1)">✓ 채점하기</button>`;
     return;
   }
 
@@ -204,7 +247,7 @@ function renderWordContent() {
       </div>
       <div class="word-section-label">${sec.label}</div>
       ${sec.words.map((w,i)=>row(w,si*10+i+1)).join('')}
-    </div>`).join('');
+    </div>`).join('') + `<button class="ck-start-btn" style="background:${color}" onclick="ckStart(1)">✓ 채점하기</button>`;
 }
 
 // ── 오답노트 탭 ───────────────────────────────────────

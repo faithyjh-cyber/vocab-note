@@ -153,6 +153,45 @@ input{background:#f7f2ea;border:1px solid rgba(0,0,0,0.08);border-radius:8px;col
 .math-card{background:#fff;border-radius:14px;padding:18px 16px;margin-bottom:14px;border:1px solid rgba(0,0,0,.07)}
 .math-card.center{text-align:center}
 .math-q{font-size:30px;font-weight:800;text-align:center;padding:24px 0 20px;line-height:1.4;color:#2c2418}
+/* 단어 채점 */
+.ck-start-btn{width:100%;padding:14px;border-radius:12px;border:none;color:#fff;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;margin-top:4px}
+.ck-start-btn:active{opacity:.85}
+.ck-top{display:flex;align-items:center;justify-content:space-between;padding:8px 0 12px}
+.ck-back{background:transparent;border:none;color:#8a7a68;font-family:inherit;font-size:13px;cursor:pointer;padding:4px 0}
+.ck-count{font-size:13px;color:#a0927c;font-weight:700}
+.ck-card{background:#fff;border-radius:16px;padding:28px 20px;text-align:center;border:1px solid rgba(0,0,0,.07);margin-bottom:16px}
+.ck-card.plain{padding:16px;text-align:left}
+.ck-label{font-size:12px;color:#a0927c;margin-bottom:14px}
+.ck-kr{font-size:26px;font-weight:900;color:#2c2418;margin-bottom:20px;line-height:1.4}
+.ck-answer{display:flex;align-items:center;justify-content:center;gap:4px;padding-top:16px;border-top:1px dashed rgba(0,0,0,.12)}
+.ck-en{font-size:30px;font-weight:800;letter-spacing:.5px}
+.ck-spk{font-size:19px!important;opacity:.6}
+.ck-pron{font-size:14px;color:#a0927c;margin-top:4px}
+.ck-btns{display:flex;gap:10px;margin-bottom:14px}
+.ck-btn{flex:1;padding:18px 0;border-radius:14px;border:2px solid;background:#fff;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px}
+.ck-btn span{font-size:28px;line-height:1}
+.ck-btn.right{border-color:#4caf6e;color:#2e7d32}
+.ck-btn.right:active{background:#e8f5e9}
+.ck-btn.wrong{border-color:#d94f4f;color:#c62828}
+.ck-btn.wrong:active{background:#ffebee}
+.ck-status{text-align:center;font-size:12px;color:#a0927c;line-height:1.9}
+.ck-status b{color:#d94f4f}
+.ck-undo{display:block;margin:6px auto 0;background:transparent;border:none;color:#8a7a68;font-family:inherit;font-size:12px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.ck-result-head{text-align:center;padding:12px 0 16px}
+.ck-result-head h2{font-size:19px;font-weight:900}
+.ck-result-head p{font-size:12px;color:#a0927c;margin-top:3px}
+.ck-result{background:#fff;border-radius:14px;padding:26px 16px;text-align:center;margin-bottom:14px;border:1px solid rgba(0,0,0,.07)}
+.ck-score{font-size:46px;font-weight:900;line-height:1}
+.ck-score span{font-size:22px;color:#a0927c}
+.ck-rate{font-size:14px;color:#8a7a68;margin-top:6px}
+.ck-wrong-row{display:flex;align-items:center;gap:8px;padding:9px 4px;border-bottom:1px solid rgba(0,0,0,.05)}
+.ck-wrong-row:last-child{border-bottom:none}
+.ck-wrong-en{font-size:15px;font-weight:800;width:92px;flex-shrink:0}
+.ck-wrong-pron{font-size:12px;color:#a0927c;width:62px;flex-shrink:0}
+.ck-wrong-kr{font-size:13px;font-weight:700;flex:1}
+.ck-save-msg{text-align:center;font-size:12px;color:#a0927c;padding:6px 0 12px}
+.ck-save-msg.ok{color:#4caf6e;font-weight:700}
+.ck-save-msg.no{color:#d94f4f}
 /* 분수 입력 칸 */
 .frac-input{display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 0 4px;border-radius:12px;transition:background .2s}
 .frac-input.correct{background:#f1f8f2}
@@ -246,6 +285,7 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 <script src="data.js"></script>
+<script src="check.js"></script>
 <script src="grammar.js"></script>
 <script src="math.js"></script>
 <script src="app.js"></script>
