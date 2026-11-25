@@ -1,20 +1,29 @@
 // ══════════════════════════════════════════════════════
-// 중학 영문법 — 40차시 (중2 과정)
-// 각 차시: concept(개념), points(핵심), bank(문제 은행 8개 중 5개 출제)
+// 중학 영문법 — 40차시 (중2 과정, 내신 대비)
+// 각 차시: concept(개념), points(핵심), traps(함정), bank(문제 은행)
 // 문제 type: 'mc'(4지선다) | 'fill'(빈칸 입력)
 // ══════════════════════════════════════════════════════
 
 const GRAMMAR = [
 {
   unit:1, title:'1·2형식', subtitle:'보어가 필요한 동사', chapter:'문장의 형식',
-  concept:'1형식은 주어와 동사만으로 뜻이 완성되고, 2형식은 주어를 설명해 주는 <b>보어</b>가 더 필요합니다. 보어 자리에는 명사나 형용사가 오며, 부사는 올 수 없어요.',
+  concept:'영어 문장은 동사가 무엇을 요구하느냐에 따라 틀이 정해집니다. <b>1형식</b>은 주어와 동사만으로 뜻이 완성되고, <b>2형식</b>은 주어가 어떤 상태인지 설명해 주는 <b>보어</b>가 반드시 필요해요.<br><br>2형식에서 가장 많이 틀리는 지점은 <b>보어 자리에 부사를 쓰는 것</b>입니다. 보어는 주어를 설명하는 말이라 명사나 형용사만 올 수 있고, 부사는 동사를 꾸미는 말이라 보어가 될 수 없어요. 특히 감각동사(look, sound, smell, taste, feel) 뒤에는 반드시 형용사를 씁니다.',
   points:[
-    '1형식: 주어 + 동사 — <b>Birds fly.</b> / <b>She smiled.</b>',
+    '1형식: 주어 + 동사 — <b>Birds fly.</b> / <b>The baby cried.</b>',
+    '1형식에 부사구가 붙어도 여전히 1형식 — <b>She smiled brightly.</b>',
     '2형식: 주어 + 동사 + 보어 — <b>He is a student.</b> / <b>She looks happy.</b>',
-    '2형식 동사: be, become, get, turn, grow + 감각동사',
-    '감각동사: look(~해 보이다), sound, smell, taste, feel',
-    '감각동사 뒤에는 <b>형용사</b>를 씁니다. 부사는 쓸 수 없어요.',
-    '감각동사 + like + 명사: <b>It tastes like chicken.</b>',
+    '상태 변화 2형식 동사: become, get, turn, grow, go, come',
+    '<b>get angry</b>(화나다), <b>turn red</b>(빨개지다), <b>go bad</b>(상하다)',
+    '감각동사: look(~해 보이다), sound(~하게 들리다), smell, taste, feel',
+    '감각동사 + <b>형용사</b> — <b>It tastes sweet.</b> (sweetly ✗)',
+    '감각동사 + <b>like + 명사</b> — <b>It tastes like candy.</b>',
+    '2형식 판별법: 동사 자리에 be동사를 넣어 말이 되면 2형식',
+  ],
+  traps:[
+    '<b>He looks sadly.</b> (✗) → <b>He looks sad.</b> (○) — 감각동사 뒤는 형용사',
+    '<b>It smells like sweet.</b> (✗) → like 뒤에는 <b>명사</b>가 와야 합니다',
+    'lovely, friendly, lonely는 -ly로 끝나지만 <b>형용사</b>입니다',
+    '<b>The flower smells well.</b> (✗) — well은 부사, <b>good</b>이 맞아요',
   ],
   bank:[
     {type:'mc', q:'빈칸에 알맞은 것은?<br><b>The soup tastes ___.</b>',
@@ -39,18 +48,37 @@ const GRAMMAR = [
     {type:'mc', q:'문장 형식이 <b>나머지와 다른</b> 것은?',
      options:['He is kind.','She looks sad.','The sun rises.','It became dark.'],
      answer:2, explain:'The sun rises.는 보어가 없는 1형식이고, 나머지는 모두 2형식입니다.'},
+    {type:'mc', q:'빈칸에 알맞은 것끼리 짝지은 것은?<br><b>She sings ___. Her voice sounds ___.</b> (beautiful)',
+     options:['beautiful / beautiful','beautifully / beautiful','beautiful / beautifully','beautifully / beautifully'],
+     answer:1, explain:'sings는 일반동사라 부사 beautifully, sounds는 감각동사라 형용사 beautiful이 옵니다.'},
+    {type:'fill', q:'빈칸을 채우세요.<br><b>The cake smells ___.</b> (good / well 중 알맞은 것)',
+     answer:['good'], explain:'감각동사 뒤에는 형용사가 오므로 good입니다. well은 부사예요.'},
+    {type:'mc', q:'어법상 <b>옳은</b> 문장은?',
+     options:['He appeared nervously at the door.','She remained silently during the class.','The story sounds strangely.','Her new dress looks lovely.'],
+     answer:3, explain:'lovely는 -ly로 끝나지만 형용사이므로 look 뒤에 올 수 있습니다.'},
+    {type:'fill', q:'빈칸을 채우세요.<br><b>He got ___ when he heard the news.</b> (angry)',
+     answer:['angry'], explain:'get은 "~한 상태가 되다"는 2형식 동사로 형용사 보어를 취합니다.'},
   ]
 },
 {
   unit:2, title:'3·4형식', subtitle:'목적어가 둘인 문장', chapter:'문장의 형식',
-  concept:'3형식은 목적어가 하나, 4형식은 "~에게 ~을"처럼 목적어가 둘인 문장입니다. 4형식은 전치사를 써서 3형식으로 바꿀 수 있어요.',
+  concept:'<b>3형식</b>은 "무엇을"에 해당하는 목적어가 하나, <b>4형식</b>은 "누구에게 무엇을"처럼 목적어가 둘인 문장입니다. 4형식의 첫 번째 목적어를 <b>간접목적어</b>(~에게), 두 번째를 <b>직접목적어</b>(~을)라고 불러요.<br><br>4형식은 순서를 바꿔 3형식으로 만들 수 있는데, 이때 간접목적어 앞에 <b>전치사</b>를 붙입니다. 어떤 전치사를 쓰는지는 동사마다 정해져 있어서 외워 두어야 해요. 시험에서는 바로 이 전치사를 묻는 문제가 자주 나옵니다.',
   points:[
     '3형식: 주어 + 동사 + 목적어 — <b>I bought a book.</b>',
-    '4형식: 주어 + 동사 + 간접목적어(~에게) + 직접목적어(~을)',
+    '4형식: 주어 + 동사 + 간접목적어 + 직접목적어',
     '<b>He gave me a gift.</b> → <b>He gave a gift to me.</b>',
-    '<b>to</b>를 쓰는 동사: give, send, show, teach, tell, lend, write',
-    '<b>for</b>를 쓰는 동사: buy, make, cook, get, find',
-    '<b>of</b>를 쓰는 동사: ask — <b>He asked a question of me.</b>',
+    '<b>to</b> 동사: give, send, show, teach, tell, lend, write, pass, bring',
+    '<b>for</b> 동사: buy, make, cook, get, find, choose, build',
+    '<b>of</b> 동사: ask (질문·부탁) — <b>He asked a favor of me.</b>',
+    '직접목적어가 대명사면 보통 3형식으로 씁니다',
+    '<b>He gave it to me.</b> (He gave me it. 은 어색)',
+    '4형식으로 쓸 수 없는 동사: explain, introduce, suggest, say',
+  ],
+  traps:[
+    '<b>He bought a ring to her.</b> (✗) → buy는 <b>for</b>를 씁니다',
+    '<b>She explained me the rule.</b> (✗) → <b>explained the rule to me.</b>',
+    '<b>Cook me it.</b> (✗) → <b>Cook it for me.</b> — 대명사는 3형식으로',
+    'to/for 구분: 상대가 있어야 가능한 일은 to, 혼자 해 줄 수 있는 일은 for',
   ],
   bank:[
     {type:'fill', q:'빈칸을 채우세요.<br><b>She sent a letter ___ her friend.</b>',
@@ -73,18 +101,39 @@ const GRAMMAR = [
      answer:1, explain:'buy는 for를 쓰는 동사이므로 bought a ring for her가 맞습니다.'},
     {type:'fill', q:'빈칸을 채우세요.<br><b>Can you lend your pen ___ me?</b>',
      answer:['to'], explain:'lend는 to를 쓰는 동사입니다.'},
+    {type:'mc', q:'어법상 <b>어색한</b> 문장은?',
+     options:['He explained the rule to us.','She introduced her friend to me.','He suggested me a good idea.','They passed the ball to him.'],
+     answer:2, explain:'suggest는 4형식으로 쓸 수 없습니다. suggested a good idea to me가 맞아요.'},
+    {type:'mc', q:'빈칸에 알맞은 것은?<br><b>Please pass the salt ___ me.</b>',
+     options:['for','of','to','with'],
+     answer:2, explain:'pass는 to를 쓰는 동사입니다.'},
+    {type:'fill', q:'빈칸을 채우세요.<br><b>My mom found a nice jacket ___ me.</b>',
+     answer:['for'], explain:'find는 for를 쓰는 동사입니다.'},
+    {type:'mc', q:'다음 문장을 3형식으로 바르게 바꾼 것은?<br><b>He gave me it.</b>',
+     options:['He gave it to me.','He gave it for me.','He gave me to it.','He gave to me it.'],
+     answer:0, explain:'직접목적어가 대명사 it이므로 3형식으로 쓰고, give는 to를 씁니다.'},
   ]
 },
 {
   unit:3, title:'5형식', subtitle:'목적격보어', chapter:'문장의 형식',
-  concept:'5형식은 목적어 뒤에 그 목적어를 설명하는 <b>목적격보어</b>가 오는 문장입니다. 동사에 따라 보어 자리에 오는 형태가 달라집니다.',
+  concept:'<b>5형식</b>은 목적어 뒤에 그 목적어가 어떤 상태인지, 무엇을 하는지 설명하는 <b>목적격보어</b>가 오는 문장입니다. 4형식과 헷갈리기 쉬운데, 두 목적어 사이에 "~은 ~이다"가 성립하면 5형식이에요.<br><br>5형식에서 가장 중요한 것은 <b>동사에 따라 보어 자리의 형태가 달라진다</b>는 점입니다. want·tell·ask는 to부정사, 사역동사 make·have·let은 동사원형, 지각동사 see·hear는 동사원형이나 -ing를 씁니다. 이 세 그룹을 구분하는 문제가 시험에 자주 나와요.',
   points:[
     '5형식: 주어 + 동사 + 목적어 + 목적격보어',
-    '명사 보어: <b>They call him Tom.</b>',
+    '명사 보어: <b>They call him Tom.</b> (him = Tom)',
     '형용사 보어: <b>She kept the room clean.</b>',
-    'to부정사 보어: want, tell, ask, allow, expect — <b>I want you to stay.</b>',
-    '사역동사(make, have, let)는 <b>동사원형</b>: <b>He made me laugh.</b>',
-    '지각동사(see, hear, feel, watch)는 <b>동사원형 또는 -ing</b>',
+    '<b>to부정사</b> 보어: want, tell, ask, allow, expect, advise, order',
+    '<b>I want you to stay.</b> / <b>She told me to wait.</b>',
+    '<b>사역동사</b>(~하게 시키다) make, have, let → <b>동사원형</b>',
+    '<b>He made me laugh.</b> / <b>Let me go.</b>',
+    'help는 예외: <b>동사원형과 to부정사 둘 다</b> 가능',
+    '<b>지각동사</b> see, hear, feel, watch, notice → <b>동사원형 또는 -ing</b>',
+    '수동 관계면 보어 자리에 <b>과거분사</b>: <b>I had my hair cut.</b>',
+  ],
+  traps:[
+    '<b>I want you go.</b> (✗) → want는 <b>to go</b>',
+    '<b>He made me to clean.</b> (✗) → 사역동사는 <b>동사원형</b>',
+    '<b>I saw him to run.</b> (✗) → 지각동사는 <b>run 또는 running</b>',
+    '4형식/5형식 구분: <b>He gave me a book.</b>(4형식, me≠book) vs <b>He called me a liar.</b>(5형식, me=liar)',
   ],
   bank:[
     {type:'mc', q:'빈칸에 알맞은 것은?<br><b>My mom let me ___ out.</b>',
@@ -109,18 +158,38 @@ const GRAMMAR = [
     {type:'mc', q:'빈칸에 알맞은 것은?<br><b>Don\'t keep the door ___.</b>',
      options:['to open','opened','openly','opens'],
      answer:1, explain:'문이 열려 있는 상태를 뜻하므로 과거분사 opened가 목적격보어로 옵니다.'},
+    {type:'mc', q:'빈칸에 들어갈 형태가 <b>나머지와 다른</b> 것은?',
+     options:['He made me ___ it. (do)','She let him ___. (leave)','I had the boy ___ the box. (carry)','They allowed us ___. (enter)'],
+     answer:3, explain:'allow는 to부정사(to enter)를 취하고, 나머지는 사역동사라 동사원형입니다.'},
+    {type:'fill', q:'빈칸을 채우세요.<br><b>I had my bike ___ yesterday.</b> (repair, 수리받았다)',
+     answer:['repaired'], explain:'자전거가 수리되는 수동 관계이므로 과거분사 repaired를 씁니다.'},
+    {type:'mc', q:'빈칸에 알맞은 것은?<br><b>She helped me ___ the problem.</b>',
+     options:['solving','solved','solve','solves'],
+     answer:2, explain:'help는 동사원형과 to부정사 둘 다 가능하므로 solve 또는 to solve입니다.'},
+    {type:'mc', q:'다음 중 문장 형식이 <b>다른</b> 하나는?',
+     options:['I found the movie boring.','She sent him a card.','They painted the wall white.','We consider him a genius.'],
+     answer:1, explain:'2번만 4형식이고 나머지는 5형식입니다. him과 a card는 같은 대상이 아니에요.'},
   ]
 },
 {
   unit:4, title:'현재완료의 형태', subtitle:'have/has + p.p.', chapter:'현재완료',
-  concept:'현재완료는 <b>have/has + 과거분사</b> 형태로, 과거에 일어난 일이 지금까지 이어져 있음을 나타냅니다. 과거시제가 "그때 일"이라면 현재완료는 "지금과 연결된 일"이에요.',
+  concept:'현재완료는 <b>have/has + 과거분사</b> 형태로, 과거에 일어난 일이 <b>지금까지 영향을 미치고 있음</b>을 나타냅니다. 우리말에는 없는 시제라서 과거시제와 구분하기 어려운데, "그래서 지금 어떤데?"라는 질문이 자연스러우면 현재완료라고 생각하면 쉬워요.<br><br>먼저 <b>과거분사(p.p.)</b> 형태를 정확히 외우는 것이 출발점입니다. 규칙 동사는 과거형과 같지만, 불규칙 동사는 따로 익혀야 해요. 특히 go-went-<b>gone</b>, see-saw-<b>seen</b>, eat-ate-<b>eaten</b>처럼 과거형과 과거분사가 다른 동사가 자주 출제됩니다.',
   points:[
     '형태: <b>have/has + 과거분사(p.p.)</b>',
-    '주어가 3인칭 단수면 <b>has</b>, 나머지는 <b>have</b>',
-    '부정: <b>have not(haven\'t) + p.p.</b>',
+    '주어가 3인칭 단수(he, she, it)면 <b>has</b>, 나머지는 <b>have</b>',
+    '부정: <b>have not(haven\'t) + p.p.</b> / <b>has not(hasn\'t) + p.p.</b>',
     '의문: <b>Have/Has + 주어 + p.p. ~?</b>',
-    '불규칙 과거분사: go-went-<b>gone</b>, see-saw-<b>seen</b>, eat-ate-<b>eaten</b>',
-    'write-wrote-<b>written</b>, take-took-<b>taken</b>, read-read-<b>read</b>',
+    '대답: <b>Yes, I have. / No, I haven\'t.</b>',
+    '불규칙 p.p. ①: go-<b>gone</b>, see-<b>seen</b>, eat-<b>eaten</b>, take-<b>taken</b>',
+    '불규칙 p.p. ②: write-<b>written</b>, speak-<b>spoken</b>, break-<b>broken</b>',
+    '불규칙 p.p. ③: read-<b>read</b>, cut-<b>cut</b>, put-<b>put</b> (형태 동일)',
+    '불규칙 p.p. ④: be-<b>been</b>, do-<b>done</b>, come-<b>come</b>',
+  ],
+  traps:[
+    '<b>I have ate lunch.</b> (✗) → <b>have eaten</b> — 과거형이 아니라 과거분사',
+    '<b>She have finished.</b> (✗) → 3인칭 단수는 <b>has</b>',
+    '<b>Did you have finished?</b> (✗) → <b>Have you finished?</b>',
+    '과거분사와 과거형이 같은 동사(had, made, said)에 방심하지 마세요',
   ],
   bank:[
     {type:'mc', q:'빈칸에 알맞은 것은?<br><b>She ___ finished her work.</b>',
@@ -143,18 +212,37 @@ const GRAMMAR = [
      answer:1, explain:'주어가 복수 My parents이므로 have를 씁니다.'},
     {type:'fill', q:'괄호 안의 동사를 알맞은 형태로 쓰세요.<br><b>She has ___ to Paris twice.</b> (be)',
      answer:['been'], explain:'be의 과거분사는 been입니다. have been to는 "가 본 적이 있다"예요.'},
+    {type:'mc', q:'과거분사 형태가 <b>잘못된</b> 것은?',
+     options:['speak - spoken','break - broken','drink - drank','choose - chosen'],
+     answer:2, explain:'drink의 과거분사는 drunk입니다. drank는 과거형이에요.'},
+    {type:'fill', q:'괄호 안의 동사를 알맞은 형태로 쓰세요.<br><b>Someone has ___ my pen.</b> (take)',
+     answer:['taken'], explain:'take의 과거분사는 taken입니다.'},
+    {type:'mc', q:'빈칸에 알맞은 것은?<br><b>A: Have you ever been to Japan?<br>B: ___</b>',
+     options:['Yes, I did.','Yes, I have.','Yes, I was.','Yes, I do.'],
+     answer:1, explain:'현재완료 의문문에는 Yes, I have. / No, I haven\'t.로 답합니다.'},
+    {type:'fill', q:'괄호 안의 동사를 알맞은 형태로 쓰세요.<br><b>He has ___ his homework already.</b> (do)',
+     answer:['done'], explain:'do의 과거분사는 done입니다.'},
   ]
 },
 {
   unit:5, title:'경험·계속 용법', subtitle:'Experience & Continuation', chapter:'현재완료',
-  concept:'현재완료는 쓰임에 따라 네 가지로 나뉩니다. 이번에는 <b>경험</b>(~해 본 적이 있다)과 <b>계속</b>(계속 ~해 오고 있다)을 배웁니다.',
+  concept:'현재완료는 문맥에 따라 네 가지 뜻으로 쓰이는데, 이번에는 <b>경험</b>과 <b>계속</b>을 배웁니다. 경험은 "지금까지 ~해 본 적이 있다", 계속은 "지금까지 계속 ~해 오고 있다"는 뜻이에요.<br><br>두 용법은 <b>함께 쓰는 말</b>로 구분할 수 있습니다. ever, never, once, twice, before가 보이면 경험, for와 since가 보이면 계속입니다. 특히 <b>for는 기간</b>(for three years), <b>since는 시작 시점</b>(since 2020) 앞에 쓴다는 구분이 시험 단골 문제예요.',
   points:[
-    '경험: <b>I have been to Japan.</b> (가 본 적이 있다)',
-    '경험과 쓰는 말: ever, never, once, twice, before',
-    '계속: <b>She has lived here for 5 years.</b>',
-    '계속과 쓰는 말: for(기간), since(시작 시점), how long',
-    '<b>have been to</b> (가 본 적 있다) ≠ <b>have gone to</b> (가서 없다)',
-    '계속 용법은 현재완료진행형(have been -ing)으로도 나타낼 수 있어요.',
+    '<b>경험</b>: ~해 본 적이 있다',
+    '경험과 쓰는 말: ever, never, once, twice, ~times, before',
+    '<b>I have never seen snow.</b> (본 적이 없다)',
+    '<b>계속</b>: (지금까지) 계속 ~해 오고 있다',
+    '계속과 쓰는 말: for, since, how long, all day',
+    '<b>for + 기간</b>: for three years, for a week, for a long time',
+    '<b>since + 시점</b>: since 2020, since last May, since I was young',
+    '<b>have been to</b> (가 본 적 있다) ↔ <b>have gone to</b> (가서 지금 없다)',
+    '계속은 현재완료진행형으로도: <b>have been -ing</b>',
+  ],
+  traps:[
+    '<b>since three years</b> (✗) → <b>for three years</b> — since 뒤는 시점',
+    '<b>for 2020</b> (✗) → <b>since 2020</b>',
+    '<b>I have gone to Japan.</b> → "나는 일본에 가서 없다"는 이상한 뜻이 됩니다',
+    '1인칭·2인칭에 have gone to는 쓰지 않아요 (말하는 사람이 여기 있으니까)',
   ],
   bank:[
     {type:'mc', q:'다음 문장의 용법은?<br><b>I have never seen a lion.</b>',
@@ -177,18 +265,39 @@ const GRAMMAR = [
      answer:2, explain:'since May와 함께 쓰여 "계속 일해 오고 있다"는 계속 용법입니다.'},
     {type:'fill', q:'빈칸을 채우세요.<br><b>I have visited Jeju ___.</b> (두 번)',
      answer:['twice'], explain:'횟수를 나타내는 twice는 경험 용법과 함께 쓰입니다.'},
+    {type:'mc', q:'어법상 <b>틀린</b> 문장은?',
+     options:['She has lived here since she was born.','I have known him for ten years.','We have waited since two hours.','He has never been late.'],
+     answer:2, explain:'two hours는 기간이므로 for two hours가 맞습니다.'},
+    {type:'mc', q:'빈칸에 알맞은 것은?<br><b>I ___ to Busan. I\'m going there next week.</b>',
+     options:['have been','have gone','have never been','have ever been'],
+     answer:2, explain:'다음 주에 처음 간다는 뜻이므로 "가 본 적이 없다"는 have never been입니다.'},
+    {type:'fill', q:'빈칸을 채우세요.<br><b>It has rained ___ this morning.</b> (아침부터)',
+     answer:['since'], explain:'this morning은 시작 시점이므로 since를 씁니다.'},
+    {type:'mc', q:'우리말과 같도록 할 때 알맞은 것은?<br><b>그는 중국에 가서 지금 없다.</b>',
+     options:['He has been to China.','He has gone to China.','He has never been to China.','He went to China.'],
+     answer:1, explain:'have gone to는 "가서 지금 여기 없다"는 결과를 나타냅니다.'},
   ]
 },
 {
   unit:6, title:'완료·결과 용법', subtitle:'Completion & Result', chapter:'현재완료',
-  concept:'<b>완료</b>는 방금 끝난 일을, <b>결과</b>는 과거의 일로 생긴 지금의 상태를 나타냅니다.',
+  concept:'<b>완료</b>는 방금 끝난 일을, <b>결과</b>는 과거에 일어난 일 때문에 생긴 <b>지금의 상태</b>를 나타냅니다. 완료는 "막 ~했다", 결과는 "~해 버려서 지금 …하다"로 해석하면 자연스러워요.<br><br>완료 용법에서는 just(막), already(벌써), yet(아직)을 함께 씁니다. 여기서 중요한 구분이 있는데, <b>already는 긍정문</b>에, <b>yet은 부정문과 의문문</b>에 쓴다는 점이에요. 이 둘을 바꿔 쓰는 실수가 시험에 자주 출제됩니다.',
   points:[
-    '완료: <b>I have just finished it.</b> (막 끝냈다)',
-    '완료와 쓰는 말: just(막), already(벌써), yet(아직·벌써)',
-    'already는 긍정문, yet은 부정문·의문문에 씁니다.',
-    '결과: <b>He has lost his wallet.</b> (잃어버려서 지금 없다)',
-    '결과 표현: have gone to, have lost, have broken',
-    '<b>Have you finished yet?</b> / <b>I haven\'t finished yet.</b>',
+    '<b>완료</b>: (막) ~했다 — 방금 끝난 일',
+    '<b>I have just finished it.</b>',
+    'just(막), already(벌써) → <b>긍정문</b>',
+    'yet(아직, 벌써) → <b>부정문·의문문</b>',
+    '<b>I haven\'t finished yet.</b> (아직 안 끝냈다)',
+    '<b>Have you finished yet?</b> (벌써 끝냈니?)',
+    '<b>결과</b>: ~해 버려서 지금 …하다',
+    '<b>I have lost my key.</b> (잃어버려서 지금 없다)',
+    '결과 표현: have lost, have gone to, have broken, have forgotten',
+    'already는 의문문에서 놀람을 나타내기도 함: <b>Have you already done it?</b>',
+  ],
+  traps:[
+    '<b>He has yet come.</b> (✗) → 긍정문에는 <b>already</b>',
+    '<b>I haven\'t already eaten.</b> (✗) → 부정문에는 <b>yet</b>',
+    'just는 보통 have와 p.p. <b>사이</b>에 놓습니다',
+    'yet은 보통 <b>문장 끝</b>에 놓습니다',
   ],
   bank:[
     {type:'mc', q:'빈칸에 알맞은 것은?<br><b>I haven\'t eaten lunch ___.</b>',
@@ -212,18 +321,38 @@ const GRAMMAR = [
      answer:1, explain:'현재완료이므로 have를 씁니다.'},
     {type:'fill', q:'빈칸을 채우세요.<br><b>Tom has ___ to Canada. He is not here now.</b> (go)',
      answer:['gone'], explain:'have gone to는 "가서 지금 없다"는 결과를 나타냅니다.'},
+    {type:'mc', q:'다음 문장에서 알 수 있는 것은?<br><b>She has forgotten his name.</b>',
+     options:['이름을 기억하고 있다','지금 이름이 기억나지 않는다','이름을 잊으려 한다','이름을 들은 적이 없다'],
+     answer:1, explain:'결과 용법으로 "잊어버려서 지금 기억 못 한다"는 뜻입니다.'},
+    {type:'fill', q:'빈칸을 채우세요.<br><b>Has the movie started ___?</b> (벌써)',
+     answer:['yet'], explain:'의문문에서는 yet을 씁니다.'},
+    {type:'mc', q:'빈칸에 알맞은 것은?<br><b>My brother ___ my bike, so I can\'t ride it.</b>',
+     options:['has broken','broke','is breaking','breaks'],
+     answer:0, explain:'망가뜨린 결과 지금 탈 수 없다는 뜻이므로 현재완료 결과 용법입니다.'},
+    {type:'mc', q:'밑줄 친 부분의 위치가 <b>어색한</b> 것은?',
+     options:['I have <u>just</u> arrived.','She has <u>already</u> eaten.','He hasn\'t called <u>yet</u>.','They have finished <u>already</u> it.'],
+     answer:3, explain:'already는 보통 have와 p.p. 사이 또는 문장 끝에 놓습니다. 목적어 앞은 어색해요.'},
   ]
 },
 {
   unit:7, title:'과거시제와의 구분', subtitle:'Present Perfect vs Past', chapter:'현재완료',
-  concept:'현재완료는 지금과 이어진 일이므로, 명백한 과거를 나타내는 말과 함께 쓸 수 없습니다. 이 구분이 시험에 자주 나와요.',
+  concept:'현재완료와 과거시제를 구분하는 것은 중학 영문법의 핵심 중 하나입니다. 가장 확실한 기준은 <b>명백한 과거를 나타내는 말과 함께 쓸 수 있는가</b>예요.<br><br>yesterday, last week, ~ago, in 2020, When ~? 같은 말은 "그때"라는 특정 시점을 못 박기 때문에, 지금과 연결된 현재완료와는 함께 쓸 수 없습니다. 반대로 for, since, just, already, yet, ever, never는 현재완료와 어울려요. 시험에서는 이 짝을 바꿔 놓고 틀린 문장을 고르게 합니다.',
   points:[
-    '현재완료와 <b>쓸 수 없는</b> 말: yesterday, last ~, ~ago, in 2020, When ~?',
+    '현재완료와 <b>쓸 수 없는</b> 말:',
+    'yesterday, last ~, ~ago, in + 연도, just now, When ~?',
     '<b>I have seen him yesterday.</b> (✗) → <b>I saw him yesterday.</b> (○)',
-    '<b>When did you arrive?</b> (○) / <b>When have you arrived?</b> (✗)',
+    '<b>When have you arrived?</b> (✗) → <b>When did you arrive?</b> (○)',
+    '현재완료와 <b>쓰는</b> 말:',
+    'for, since, just, already, yet, ever, never, so far, recently, lately',
     '과거: 끝난 일 — <b>He lived in Busan in 2019.</b> (지금은 아님)',
     '현재완료: 이어진 일 — <b>He has lived in Busan since 2019.</b> (지금도)',
-    '현재완료와 쓰는 말: for, since, just, already, yet, ever, never, recently',
+    'just now는 과거시제와 씁니다: <b>He left just now.</b>',
+  ],
+  traps:[
+    '<b>When have you finished?</b> (✗) → When은 특정 시점을 묻기에 과거시제',
+    '<b>I have bought it last month.</b> (✗) → <b>bought it last month</b>',
+    'just(현재완료)와 just now(과거)를 혼동하지 마세요',
+    'recently·lately는 현재완료와 과거 둘 다 가능하지만, 보통 현재완료와 씁니다',
   ],
   bank:[
     {type:'mc', q:'어법상 <b>틀린</b> 문장은?',
@@ -248,25 +377,45 @@ const GRAMMAR = [
     {type:'mc', q:'어법상 <b>옳은</b> 문장은?',
      options:['I have called her yesterday.','When have you finished it?','She has worked here since March.','He has bought a car last month.'],
      answer:2, explain:'since March는 현재완료와 함께 쓰는 표현입니다. 나머지는 모두 과거시제를 써야 해요.'},
+    {type:'mc', q:'빈칸에 알맞은 것끼리 짝지은 것은?<br><b>He ___ to Paris in 2020, and he ___ there since then.</b>',
+     options:['moved / lived','has moved / has lived','moved / has lived','has moved / lived'],
+     answer:2, explain:'in 2020은 과거이므로 moved, since then은 현재완료이므로 has lived입니다.'},
+    {type:'fill', q:'빈칸에 알맞은 형태를 쓰세요.<br><b>I ___ her just now.</b> (see)',
+     answer:['saw'], explain:'just now는 과거시제와 함께 씁니다.'},
+    {type:'mc', q:'빈칸에 들어갈 말이 <b>다른</b> 하나는?',
+     options:['I ___ seen it before. (have/did)','She ___ not come yesterday. (has/did)','They ___ already gone. (have/did)','We ___ lived here for years. (have/did)'],
+     answer:1, explain:'yesterday가 있으므로 did를 쓰고, 나머지는 모두 have입니다.'},
+    {type:'fill', q:'잘못된 부분을 고쳐 쓰세요.<br><b>I have visited Jeju two years ago.</b><br>→ I ___ Jeju two years ago.',
+     answer:['visited'], explain:'two years ago는 명백한 과거이므로 과거시제로 고쳐야 합니다.'},
   ]
 },
 {
   unit:8, title:'to부정사 — 명사적 용법', subtitle:'Nominal Use', chapter:'to부정사',
-  concept:'to부정사가 "~하는 것, ~하기"라는 뜻으로 명사처럼 쓰이는 경우입니다. 주어, 목적어, 보어 자리에 올 수 있어요.',
+  concept:'to부정사가 "~하는 것, ~하기"라는 뜻으로 <b>명사처럼</b> 쓰이는 경우입니다. 명사가 들어갈 수 있는 자리, 즉 주어·목적어·보어 자리에 모두 올 수 있어요.<br><br>주어로 쓰일 때는 문장이 머리가 무거워지기 때문에 보통 <b>가주어 It</b>을 앞에 두고 뒤로 보냅니다. 또 의문사와 결합해 <b>what to do</b>(무엇을 할지), <b>how to swim</b>(수영하는 법)처럼 쓰이는 형태도 자주 출제되니 함께 익혀 두세요.',
   points:[
-    '주어: <b>To read books is fun.</b> (책 읽는 것은)',
-    '목적어: <b>I want to go home.</b> (가기를)',
-    '보어: <b>My dream is to be a pilot.</b> (되는 것)',
-    '의문사 + to부정사: <b>I don\'t know what to do.</b>',
-    '<b>how to</b>(~하는 방법), <b>where to</b>, <b>when to</b>',
-    '주어로 쓰일 때는 보통 가주어 It으로 바꿔 씁니다.',
+    '<b>주어</b>: <b>To read books is fun.</b> → <b>It is fun to read books.</b>',
+    'to부정사 주어는 <b>단수 취급</b>: <b>To learn English is</b> (are ✗)',
+    '<b>목적어</b>: <b>I want to go home.</b>',
+    'to부정사를 목적어로 쓰는 동사: want, hope, wish, plan, decide, promise, expect, agree, refuse, learn, need',
+    '<b>보어</b>: <b>My dream is to be a pilot.</b>',
+    '<b>의문사 + to부정사</b>:',
+    '<b>what to do</b>(무엇을 할지), <b>how to swim</b>(수영하는 법)',
+    '<b>where to go</b>(어디로 갈지), <b>when to start</b>(언제 시작할지)',
+    'why to는 쓰지 않습니다',
+    '의문사 + to부정사 = 의문사 + 주어 + should + 동사원형',
+  ],
+  traps:[
+    '<b>To swim are fun.</b> (✗) → to부정사 주어는 <b>단수</b>',
+    '<b>He enjoys to read.</b> (✗) → enjoy는 <b>동명사</b>를 취합니다',
+    '<b>I don\'t know why to go.</b> (✗) → why to는 쓰지 않아요',
+    '<b>It is fun reading books.</b> (✗) → 가주어 It의 진주어는 <b>to부정사</b>',
   ],
   bank:[
     {type:'mc', q:'밑줄 친 부분의 용법은?<br><b>My plan is <u>to travel</u> abroad.</b>',
      options:['주어','목적어','보어','수식어'],
      answer:2, explain:'be동사 뒤에서 주어 My plan을 설명하는 보어입니다.'},
     {type:'mc', q:'빈칸에 알맞은 것은?<br><b>I don\'t know ___ to start.</b>',
-     options:['what','how','which','where'],
+     options:['what','how','which','why'],
      answer:1, explain:'"어떻게 시작할지"라는 뜻이므로 how to를 씁니다.'},
     {type:'fill', q:'빈칸을 채우세요.<br><b>She decided ___ ___ a doctor.</b> (의사가 되기로)',
      answer:['to be','to become'], explain:'decide는 to부정사를 목적어로 취합니다.'},
@@ -283,18 +432,39 @@ const GRAMMAR = [
      answer:2, explain:'enjoy는 동명사를 목적어로 취하므로 enjoys reading이 맞습니다.'},
     {type:'fill', q:'빈칸을 채우세요.<br><b>I need ___ ___ what to wear.</b> (결정할 필요가 있다)',
      answer:['to decide'], explain:'need는 to부정사를 목적어로 취합니다.'},
+    {type:'mc', q:'빈칸에 알맞은 동사 형태는?<br><b>To keep a diary ___ a good habit.</b>',
+     options:['are','is','were','be'],
+     answer:1, explain:'to부정사 주어는 단수 취급하므로 is를 씁니다.'},
+    {type:'mc', q:'다음 문장과 뜻이 같은 것은?<br><b>I don\'t know what to say.</b>',
+     options:['I don\'t know what I said.','I don\'t know what I should say.','I don\'t know what saying.','I don\'t know to say what.'],
+     answer:1, explain:'의문사 + to부정사는 의문사 + 주어 + should + 동사원형으로 바꿔 쓸 수 있습니다.'},
+    {type:'fill', q:'가주어를 써서 고치세요.<br><b>To exercise every day is important.</b><br>→ ___ is important ___ exercise every day.',
+     answer:['It to'], explain:'가주어 It을 앞에 두고 진주어 to부정사를 뒤로 보냅니다.'},
+    {type:'mc', q:'빈칸에 알맞은 것은?<br><b>He promised ___ on time.</b>',
+     options:['coming','to come','come','came'],
+     answer:1, explain:'promise는 to부정사만 목적어로 취합니다.'},
   ]
 },
 {
   unit:9, title:'to부정사 — 형용사적 용법', subtitle:'Adjectival Use', chapter:'to부정사',
-  concept:'to부정사가 앞의 <b>명사나 대명사를 꾸며</b> "~할, ~하는"이라는 뜻을 나타냅니다. 항상 꾸밈받는 말 뒤에 놓여요.',
+  concept:'to부정사가 앞에 있는 <b>명사나 대명사를 꾸며</b> "~할, ~하는"이라는 뜻을 나타냅니다. 우리말과 달리 꾸밈받는 말 <b>뒤에</b> 놓인다는 점이 핵심이에요.<br><br>이 용법에서 가장 자주 틀리는 것은 <b>전치사를 빠뜨리는 것</b>입니다. "앉을 의자"는 sit on a chair에서 왔으므로 <b>a chair to sit on</b>처럼 on이 남아야 해요. 또 something, anything처럼 -thing으로 끝나는 말은 <b>형용사가 뒤에 오고</b> 그 뒤에 to부정사가 붙는 어순도 함께 외워 두세요.',
   points:[
     '<b>I have a lot of work to do.</b> (할 일)',
     '<b>Give me something to drink.</b> (마실 것)',
-    '-thing/-body/-one + 형용사 + to부정사 순서에 주의',
+    '어순: <b>-thing/-body/-one + 형용사 + to부정사</b>',
     '<b>something cold to drink</b> (차가운 마실 것)',
-    '전치사가 필요한 경우: <b>a chair to sit on</b>, <b>a pen to write with</b>',
-    '<b>be동사 + to부정사</b>: 예정·의무·가능 — <b>We are to meet at 5.</b>',
+    '<b>전치사가 남는 경우</b>:',
+    '<b>a chair to sit on</b> (sit on a chair)',
+    '<b>a pen to write with</b> (write with a pen)',
+    '<b>a house to live in</b> (live in a house)',
+    '<b>a friend to talk with/to</b> (talk with a friend)',
+    '<b>be동사 + to부정사</b>: 예정(~할 예정이다), 의무, 가능',
+  ],
+  traps:[
+    '<b>a chair to sit</b> (✗) → <b>a chair to sit on</b> — 전치사 필수',
+    '<b>something to eat hot</b> (✗) → <b>something hot to eat</b>',
+    '<b>cold something to drink</b> (✗) → -thing 뒤에 형용사',
+    'to부정사가 명사 앞에 오지 않도록 주의: <b>to read books</b>(✗ 형용사적 용법일 때)',
   ],
   bank:[
     {type:'mc', q:'빈칸에 알맞은 것은?<br><b>I need a friend ___ to.</b>',
@@ -318,18 +488,39 @@ const GRAMMAR = [
      answer:2, explain:'3번은 목적을 나타내는 부사적 용법이고, 나머지는 형용사적 용법입니다.'},
     {type:'fill', q:'빈칸을 채우세요.<br><b>It\'s time ___ ___ to bed.</b> (잠자리에 들 시간)',
      answer:['to go'], explain:'time을 꾸미는 형용사적 용법으로 to go가 옵니다.'},
+    {type:'mc', q:'전치사가 <b>필요한</b> 문장은?',
+     options:['I have homework to do.','She wants a book to read.','He needs paper to write.','They have food to eat.'],
+     answer:2, explain:'write on paper이므로 to write on이 되어야 합니다.'},
+    {type:'fill', q:'빈칸을 채우세요.<br><b>Is there anything ___ ___?</b> (먹을 것)',
+     answer:['to eat'], explain:'anything을 꾸미는 형용사적 용법입니다.'},
+    {type:'mc', q:'다음 문장의 뜻으로 알맞은 것은?<br><b>We are to meet at six.</b>',
+     options:['우리는 6시에 만나고 싶다','우리는 6시에 만날 예정이다','우리는 6시에 만났다','우리는 6시에 만날 수 있다'],
+     answer:1, explain:'be동사 + to부정사는 예정을 나타낼 수 있습니다.'},
+    {type:'mc', q:'빈칸에 알맞은 것은?<br><b>He is the first man ___ the moon.</b>',
+     options:['walk on','to walk on','walking on','walked on'],
+     answer:1, explain:'the first man을 꾸미는 형용사적 용법이므로 to walk on입니다.'},
   ]
 },
 {
   unit:10, title:'to부정사 — 부사적 용법', subtitle:'Adverbial Use', chapter:'to부정사',
-  concept:'to부정사가 동사나 형용사를 꾸며 <b>목적·감정의 원인·결과·판단의 근거</b>를 나타냅니다. "~하기 위해"가 가장 흔한 뜻이에요.',
+  concept:'to부정사가 동사나 형용사를 꾸며 <b>목적·감정의 원인·결과·판단의 근거</b>를 나타냅니다. 가장 흔한 것은 "~하기 위해"라는 목적이에요.<br><br>용법을 구분하는 요령이 있습니다. 앞에 <b>감정 형용사</b>(glad, sad, happy, surprised)가 있으면 감정의 원인, <b>must/cannot</b> 같은 추측 표현이 있으면 판단의 근거, <b>grew up / lived / woke up</b>처럼 시간의 흐름이 있으면 결과입니다. 나머지는 대개 목적이에요.',
   points:[
-    '목적(~하기 위해): <b>He came to see me.</b> = in order to / so as to',
-    '감정의 원인(~해서): <b>I\'m glad to meet you.</b>',
-    '결과(~해서 결국): <b>He grew up to be a singer.</b>',
-    '판단의 근거(~하다니): <b>He must be smart to solve it.</b>',
-    '형용사 수식: <b>This book is easy to read.</b>',
+    '<b>목적</b>(~하기 위해): <b>He came to see me.</b>',
+    '목적을 분명히: <b>in order to</b>, <b>so as to</b>',
+    '<b>감정의 원인</b>(~해서): <b>I\'m glad to meet you.</b>',
+    '감정 형용사: glad, happy, sad, sorry, surprised, pleased, disappointed',
+    '<b>결과</b>(~해서 결국): <b>He grew up to be a singer.</b>',
+    '결과 표현: grew up to be, lived to be, woke up to find',
+    '<b>판단의 근거</b>(~하다니): <b>He must be smart to solve it.</b>',
+    '<b>형용사 수식</b>: <b>This book is easy to read.</b>',
     '부정형: <b>not to</b> — <b>Be careful not to fall.</b>',
+    '목적 강조: <b>so that + 주어 + can</b>으로 바꿔 쓸 수 있음',
+  ],
+  traps:[
+    '<b>Be careful to not fall.</b> (✗) → <b>not to fall</b> — not이 to 앞',
+    '목적인지 결과인지는 <b>문맥</b>으로 판단해야 합니다',
+    '<b>I\'m glad meeting you.</b> (✗) → 감정의 원인은 <b>to부정사</b>',
+    '<b>This book is easy to read it.</b> (✗) → it을 또 쓰지 않아요',
   ],
   bank:[
     {type:'mc', q:'밑줄 친 부분의 뜻으로 알맞은 것은?<br><b>She was surprised <u>to hear</u> the news.</b>',
@@ -354,6 +545,17 @@ const GRAMMAR = [
     {type:'mc', q:'밑줄 친 to부정사의 용법이 <b>같은</b> 것끼리 짝지은 것은?<br>(A) I\'m happy <u>to see</u> you.<br>(B) He ran <u>to catch</u> the bus.<br>(C) She was sad <u>to leave</u>.',
      options:['A-B','A-C','B-C','없음'],
      answer:1, explain:'A와 C는 감정의 원인, B는 목적입니다.'},
+    {type:'mc', q:'다음 문장과 뜻이 같은 것은?<br><b>He left early to catch the train.</b>',
+     options:['He left early so that he could catch the train.','He left early because he caught the train.','He left early although he caught the train.','He left early and caught the train.'],
+     answer:0, explain:'목적의 to부정사는 so that + 주어 + can/could로 바꿔 쓸 수 있습니다.'},
+    {type:'fill', q:'빈칸을 채우세요.<br><b>He woke up ___ ___ the house empty.</b> (일어나 보니 집이 비어 있었다)',
+     answer:['to find'], explain:'결과를 나타내는 부사적 용법으로 woke up to find 형태입니다.'},
+    {type:'mc', q:'어법상 <b>틀린</b> 문장은?',
+     options:['I was glad to help you.','This water is safe to drink.','He is too tired to work it.','She came to say goodbye.'],
+     answer:2, explain:'to부정사의 목적어가 주어와 같으므로 it을 또 쓸 수 없습니다.'},
+    {type:'mc', q:'빈칸에 알맞은 것은?<br><b>She studied hard ___ ___ ___ pass the test.</b> (시험에 통과하기 위해서)',
+     options:['so as to','in order that','so that to','for to'],
+     answer:0, explain:'so as to + 동사원형은 목적을 나타내는 표현입니다.'},
   ]
 },
 {
@@ -1410,7 +1612,7 @@ const GRAMMAR = [
 ];
 
 const GRAMMAR_UNITS = GRAMMAR.length;
-// 문법 시작일(이 Day부터 1차시) — 단어 Day와 별도로 센다
+// 문법 시작일(이 Day부터 1차시)
 const GRAMMAR_START_DAY = 82;
 
 // ══════════════════════════════════════════════════════
@@ -1473,7 +1675,7 @@ function gPickProblems(unit) {
     const j = Math.floor(Math.random() * (i + 1));
     [pool[i], pool[j]] = [pool[j], pool[i]];
   }
-  return pool.slice(0, 5);
+  return pool.slice(0, 10);
 }
 
 // ── 정답 확인 ─────────────────────────────────────────
@@ -1584,7 +1786,14 @@ function gStartConcept() {
         ${u.points.map(p => `<li>${p}</li>`).join('')}
       </ul>
     </div>
-    <button class="g-btn" onclick="gStartQuiz()">문제 풀기 (5문제) →</button>
+    ${u.traps && u.traps.length ? `
+    <div class="g-card trap">
+      <div class="clabel trap-label">⚠️ 자주 틀리는 함정</div>
+      <ul class="g-traps">
+        ${u.traps.map(t => `<li>${t}</li>`).join('')}
+      </ul>
+    </div>` : ''}
+    <button class="g-btn" onclick="gStartQuiz()">문제 풀기 (10문제) →</button>
     <button class="g-btn ghost" onclick="renderGrammarHome()">단원 목록</button>
   `;
   window.scrollTo(0, 0);
@@ -1617,9 +1826,9 @@ function gRenderQuiz() {
   document.getElementById('page-grammar').innerHTML = `
     <div class="g-header">
       <h2>${u.title}</h2>
-      <p>${gState.idx + 1} / 5</p>
+      <p>${gState.idx + 1} / ${gState.problems.length}</p>
     </div>
-    <div class="g-progress"><div class="g-bar" style="width:${gState.idx / 5 * 100}%"></div></div>
+    <div class="g-progress"><div class="g-bar" style="width:${gState.idx / gState.problems.length * 100}%"></div></div>
     <div class="g-card">
       <div class="g-q">${p.q}</div>
       ${body}
@@ -1679,13 +1888,13 @@ function gNext() {
 // ── 화면: 결과 ────────────────────────────────────────
 async function gFinish() {
   const u = GRAMMAR.find(x => x.unit === gState.unit);
-  const rate = gState.correct * 20;
+  const rate = Math.round(gState.correct / gState.problems.length * 100);
   const t = new Date();
   const date = `${t.getMonth() + 1}/${t.getDate()}`;
 
   const saved = await gLoad();
   const hist = saved.history || [];
-  hist.push({ date, unit: gState.unit, title: u.title, correct: gState.correct, total: 5, rate });
+  hist.push({ date, unit: gState.unit, title: u.title, correct: gState.correct, total: gState.problems.length, rate });
   await gSave({ history: hist.slice(-40) });
   gState.history = hist;
 
@@ -1702,7 +1911,7 @@ async function gFinish() {
       <p>${u.title}</p>
     </div>
     <div class="g-result">
-      <div class="g-score">${gState.correct}<span>/5</span></div>
+      <div class="g-score">${gState.correct}<span>/${gState.problems.length}</span></div>
       <div class="g-rate">정답률 ${rate}%</div>
     </div>
     ${wrong.length ? `
