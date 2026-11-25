@@ -1,14 +1,13 @@
 // ══════════════════════════════════════════════════════
-// 단어 채점 — 종이에 쓴 답을 보고 ○ / ✗ 만 누르기
-// 끝나면 오답이 오답노트에 자동 저장됨
+// 단어 채점 — 종이에 쓴 답을 보고 10문제를 한 화면에서 ○ / ✗ 표시
+// 저장하면 오답이 오답노트에 자동으로 쌓임
 // ══════════════════════════════════════════════════════
 
 let ckState = {
   kid: 1,
-  words: [],      // [[en, pron, kr], ...]
-  idx: 0,
-  results: [],    // [{ w:[en,pron,kr], ok:true/false }]
-  info: null,     // getTodayWords 결과
+  words: [],      // [[en, pron, kr], ...] 순서 섞인 상태
+  marks: [],      // null | true(맞음) | false(틀림)
+  info: null,
   saving: false,
 };
 
@@ -19,80 +18,137 @@ function ckStart(kid) {
     alert(info.reason === 'rest' ? '오늘은 쉬는 날이에요 🎉' : '오늘 단어가 아직 준비 중이에요');
     return;
   }
-  // 순서 섞기
   const shuffled = info.words.slice();
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  ckState = { kid, words: shuffled, idx: 0, results: [], info, saving: false };
+  ckState = {
+    kid, words: shuffled,
+    marks: new Array(shuffled.length).fill(null),
+    info, saving: false,
+  };
   ckRender();
 }
 
-// ── 채점 화면 ─────────────────────────────────────────
+// ── 채점 목록 화면 ────────────────────────────────────
 function ckRender() {
   const s = ckState;
-  const w = s.words[s.idx];
   const color = KIDS[s.kid].color;
   const total = s.words.length;
-  const wrongSoFar = s.results.filter(r => !r.ok).length;
+  const marked = s.marks.filter(m => m !== null).length;
+  const wrongCnt = s.marks.filter(m => m === false).length;
+  const left = total - marked;
+  const ready = left === 0;
+
+  const rows = s.words.map((w, i) => {
+    const m = s.marks[i];
+    const dim = m === null ? ' dim' : '';
+    return `<div class="ck-row${dim}">
+      <span class="ck-no">${i + 1}</span>
+      <div class="ck-word">
+        <div class="ck-row-en" style="color:${color}" onclick="speak('${w[0]}',event)">${w[0]}</div>
+        <div class="ck-row-kr">${w[2]}</div>
+      </div>
+      <div class="ck-marks">
+        <button class="ck-mk x${m === false ? ' on' : ''}" onclick="ckMark(${i},false)" aria-label="${i+1}번 틀림">✗</button>
+        <button class="ck-mk o${m === true ? ' on' : ''}" onclick="ckMark(${i},true)" aria-label="${i+1}번 맞음">○</button>
+      </div>
+    </div>`;
+  }).join('');
 
   document.getElementById('page-word').innerHTML = `
     <div class="ck-top">
       <button class="ck-back" onclick="ckExit()">← 나가기</button>
-      <span class="ck-count">${s.idx + 1} / ${total}</span>
-    </div>
-    <div class="g-progress"><div class="g-bar" style="width:${s.idx / total * 100}%;background:${color}"></div></div>
-
-    <div class="ck-card">
-      <div class="ck-label">이 뜻의 단어를 맞게 썼나요?</div>
-      <div class="ck-kr">${w[2]}</div>
-      <div class="ck-answer">
-        <span class="ck-en" style="color:${color}">${w[0]}</span>
-        <button class="spk ck-spk" onclick="speak('${w[0]}',event)">🔊</button>
-      </div>
-      <div class="ck-pron">${w[1]}</div>
+      <button class="ck-allo" onclick="ckAllRight()">전부 ○</button>
     </div>
 
-    <div class="ck-btns">
-      <button class="ck-btn wrong" onclick="ckMark(false)"><span>✗</span>틀렸어요</button>
-      <button class="ck-btn right" onclick="ckMark(true)"><span>○</span>맞았어요</button>
+    <div class="ck-head">
+      <h2>채점하기</h2>
+      <p>${KIDS[s.kid].name} · Day ${s.info.day}${s.info.part ? (s.info.part === 1 ? ' ①' : ' ②') : ''} · ${total}문제</p>
     </div>
 
-    <div class="ck-status">
-      맞은 개수 ${s.results.filter(r => r.ok).length}개 · 틀린 개수 <b>${wrongSoFar}개</b>
-      ${s.idx > 0 ? '<button class="ck-undo" onclick="ckUndo()">← 방금 것 고치기</button>' : ''}
-    </div>
+    <div class="ck-list">${rows}</div>
+
+    <p class="ck-status">
+      표시한 문제 ${marked} / ${total} · 틀린 개수 <b>${wrongCnt}개</b>
+    </p>
+
+    <button class="ck-save ${ready ? '' : 'off'}" style="${ready ? 'background:' + color : ''}"
+      onclick="ckSubmit()" ${ready ? '' : 'disabled'}>
+      ${ready ? '저장하기' : `저장하기 (${left}개 남음)`}
+    </button>
   `;
-  window.scrollTo(0, 0);
 }
 
-// ── ○ / ✗ 표시 ───────────────────────────────────────
-function ckMark(ok) {
-  ckState.results.push({ w: ckState.words[ckState.idx], ok });
-  ckState.idx++;
-  if (ckState.idx >= ckState.words.length) ckFinish();
-  else ckRender();
+// ── 한 문제 표시 (화면 다시 그리지 않고 버튼만 갱신) ─────
+function ckMark(i, ok) {
+  ckState.marks[i] = ok;
+  ckUpdateRow(i);
+  ckUpdateFooter();
 }
 
-function ckUndo() {
-  if (ckState.idx === 0) return;
-  ckState.idx--;
-  ckState.results.pop();
-  ckRender();
+function ckUpdateRow(i) {
+  const rows = document.querySelectorAll('.ck-row');
+  const row = rows[i];
+  if (!row) return;
+  const m = ckState.marks[i];
+  row.classList.toggle('dim', m === null);
+  const [xBtn, oBtn] = row.querySelectorAll('.ck-mk');
+  xBtn.classList.toggle('on', m === false);
+  oBtn.classList.toggle('on', m === true);
+}
+
+function ckUpdateFooter() {
+  const s = ckState;
+  const total = s.words.length;
+  const marked = s.marks.filter(m => m !== null).length;
+  const wrongCnt = s.marks.filter(m => m === false).length;
+  const left = total - marked;
+  const ready = left === 0;
+
+  const st = document.querySelector('.ck-status');
+  if (st) st.innerHTML = `표시한 문제 ${marked} / ${total} · 틀린 개수 <b>${wrongCnt}개</b>`;
+
+  const btn = document.querySelector('.ck-save');
+  if (btn) {
+    btn.classList.toggle('off', !ready);
+    btn.disabled = !ready;
+    btn.style.background = ready ? KIDS[s.kid].color : '';
+    btn.textContent = ready ? '저장하기' : `저장하기 (${left}개 남음)`;
+  }
+}
+
+function ckAllRight() {
+  ckState.marks = ckState.marks.map(() => true);
+  ckState.words.forEach((_, i) => ckUpdateRow(i));
+  ckUpdateFooter();
 }
 
 function ckExit() {
-  if (ckState.idx > 0 && !confirm('채점을 그만둘까요? 지금까지 표시한 건 저장되지 않아요.')) return;
+  const marked = ckState.marks.filter(m => m !== null).length;
+  if (marked > 0 && !confirm('채점을 그만둘까요? 표시한 건 저장되지 않아요.')) return;
   renderWordContent();
 }
 
-// ── 결과 + 자동 저장 ──────────────────────────────────
-async function ckFinish() {
+// ── 저장 + 결과 ───────────────────────────────────────
+async function ckSubmit() {
+  const s = ckState;
+  if (s.saving) return;
+  s.saving = true;
+
+  const btn = document.querySelector('.ck-save');
+  if (btn) { btn.disabled = true; btn.textContent = '저장 중...'; }
+
+  const wrongList = s.words.filter((_, i) => s.marks[i] === false);
+  const total = s.words.length;
+  const ok = await ckSave(s.kid, wrongList.map(w => w[0].toLowerCase()), total);
+  ckResult(wrongList, total, ok);
+}
+
+function ckResult(wrongList, total, saved) {
   const s = ckState;
   const kid = s.kid;
-  const total = s.words.length;
-  const wrongList = s.results.filter(r => !r.ok).map(r => r.w);
   const correct = total - wrongList.length;
   const rate = Math.round(correct / total * 100);
   const color = KIDS[kid].color;
@@ -104,7 +160,7 @@ async function ckFinish() {
   else { msg = '오답을 한 번 더 볼까요?'; emoji = '📚'; }
 
   document.getElementById('page-word').innerHTML = `
-    <div class="ck-result-head">
+    <div class="ck-head">
       <h2>${emoji} ${msg}</h2>
       <p>${KIDS[kid].name} · Day ${s.info.day}${s.info.part ? (s.info.part === 1 ? ' ①' : ' ②') : ''}</p>
     </div>
@@ -113,7 +169,7 @@ async function ckFinish() {
       <div class="ck-rate">정답률 ${rate}%</div>
     </div>
     ${wrongList.length ? `
-      <div class="ck-card plain">
+      <div class="ck-card">
         <div class="clabel">틀린 단어 ${wrongList.length}개</div>
         ${wrongList.map(w => `
           <div class="ck-wrong-row">
@@ -123,35 +179,22 @@ async function ckFinish() {
             <button class="spk" onclick="speak('${w[0]}',event)">🔊</button>
           </div>`).join('')}
       </div>` : ''}
-    <div id="ck-save-msg" class="ck-save-msg">오답노트에 저장 중...</div>
+    <div class="ck-save-msg ${saved ? 'ok' : 'no'}">
+      ${saved ? '오답노트에 저장됐어요 ✓' : '저장에 실패했어요. 오답 탭에서 직접 입력해 주세요.'}
+    </div>
     <button class="g-btn" style="background:${color}" onclick="ckStart(${kid})">다시 채점하기</button>
     <button class="g-btn ghost" onclick="renderWordContent()">단어로 돌아가기</button>
   `;
   window.scrollTo(0, 0);
-
-  // 오답노트에 자동 저장
-  const saved = await ckSave(kid, wrongList.map(w => w[0].toLowerCase()), total);
-  const el = document.getElementById('ck-save-msg');
-  if (el) {
-    if (saved) {
-      el.textContent = '오답노트에 저장됐어요 ✓';
-      el.className = 'ck-save-msg ok';
-    } else {
-      el.textContent = '저장에 실패했어요. 오답 탭에서 직접 입력해 주세요.';
-      el.className = 'ck-save-msg no';
-    }
-  }
 }
 
-// ── 오답노트 저장 (오답 탭과 같은 구조) ─────────────────
+// ── 오답노트에 저장 (오답 탭과 같은 구조) ───────────────
 async function ckSave(kid, wrongWords, total) {
   try {
     const date = formatDateFull();
-    // 최신 데이터 불러오기
     let data = await apiLoad(kid);
     if (!data || !data.records) data = { records: [], wrongs: {} };
 
-    // 같은 날짜 기록이 있으면 먼저 되돌리기
     const idx = data.records.findIndex(r => r.date === date);
     if (idx >= 0) {
       data.records[idx].wrong.forEach(w => {
